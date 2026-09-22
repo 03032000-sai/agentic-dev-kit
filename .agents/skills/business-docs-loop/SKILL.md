@@ -1,20 +1,33 @@
 ---
 name: business-docs-loop
-description: Turn a codebase into cited, plain-language business documentation for non-technical readers. Use when the deliverable is business-facing documentation, not code.
+description: Convert implementation evidence into cited plain-language business documentation using map, glossary, findings, fidelity, and code-blind review gates.
 ---
 
 # Business Documentation Loop
 
-Maintain a Change Brief scoped to documentation, not code changes.
+## Invariants
+- code/config/tests establish WHAT;
+- WHY requires authoritative documentation or remains inferred/unknown;
+- every material claim carries evidence;
+- narrative writers introduce zero new facts;
+- specialist critics use fresh context;
+- publication records source SHA(s).
 
-1. Business Scope Intake confirms target repo/scope and scaffolds run state.
-2. Codebase Cartographer builds the structural map with a stable ID registry.
-3. Domain Glossary Curator builds the term glossary (gate: no later stage introduces an undefined term).
-4. Business Rule Miner extracts cited decision tables; WHAT is `confirmed`, WHY is `inferred`.
-5. Process Capability Mapper reconstructs capability swimlane flows, citing every step.
-6. Fresh critic reviews the map, glossary, rules, and capabilities for code-anchored evidence before any narrative is written; close BLOCKING findings.
-7. Business Doc Writer produces plain-language narrative from approved findings only — no code access, zero new claims.
-8. Fresh critic reviews the narrative as a stand-in for a non-technical reader: readability, jargon, trust; close BLOCKING findings.
-9. Business Doc Publisher compiles the traceability matrix, gap register, and coverage report.
+## Flow
+1. Business Scope Intake defines audience/questions/scope/non-goals.
+2. Codebase Cartographer creates stable IDs and evidence-backed map.
+3. Fresh Map Critic reviews coverage.
+4. Domain Glossary Curator establishes `TERM-###` vocabulary; glossary gate blocks unexplained domain terms.
+5. Business Rule Miner extracts `RULE-###` decision tables with WHAT/WHY separation.
+6. Fresh Findings Critic verifies evidence classes/citations.
+7. Process Capability Mapper creates `CAP-###` / `PROC-###` flows and swimlanes.
+8. Business Doc Writer receives approved findings only and writes plain-language narrative with zero new factual claims.
+9. Fidelity critic verifies narrative → approved finding/evidence.
+10. Code-blind reader checks readability, jargon, unexplained identifiers, and trust.
+11. Publisher emits narrative, diagrams, glossary, traceability matrix, gap register, coverage report, and source SHA(s).
 
-Every claim carries its evidence class (`confirmed|documented|inferred|unknown`) and source citation through to publication.
+## Stable IDs
+Use CMP, ENT, STORE, INT, JOB, RULE, CAP, PROC, TERM namespaces.
+
+## Gate behavior
+Blocking evidence gaps return to the producing stage. Do not paper over unknown business intent.

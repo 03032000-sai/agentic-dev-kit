@@ -2,14 +2,30 @@
 
 Read `/AGENTS.md` as the canonical operating contract.
 
-For substantial engineering tasks:
-- investigate before editing;
-- use specialized custom agents from `.github/agents/`;
-- use prompt files in `.github/prompts/` as workflow entry points;
-- use skills under `.agents/skills/` when relevant;
-- keep design, implementation, and independent critique distinct;
-- use deterministic validation before completion;
-- surface uncertainty and failed checks explicitly;
-- do not perform destructive or production-impacting operations without explicit approval.
+## Substantial-change behavior
+For non-trivial features, fixes, refactors, and behavioral changes, use the `incremental-design-build` workflow rather than jumping directly to code.
 
-For features and non-trivial fixes, prefer the `incremental-design-build` workflow. For multi-repo work, start with `multi-repo-bootstrap`; for business-facing documentation, use `business-docs-loop`.
+The workflow requires:
+- fresh Stage 0 repository context;
+- Change Brief + mechanical Definition of Done;
+- safe branch/checkpoint state;
+- progressive disclosure;
+- agent-alignment round;
+- System Design + fresh Gate A critique;
+- Implementation Design + fresh Gate B critique;
+- bounded implementation iterations;
+- deterministic local validation;
+- clean-context validation when warranted;
+- fresh Gate C critique;
+- traceability and PR-ready Git handoff.
+
+## Role isolation
+Prefer custom agents in `.github/agents/` for specialist responsibilities. The agent that authors an artifact should not be its only reviewer.
+
+## Evidence
+Classify meaningful claims as `confirmed`, `documented`, `inferred`, or `unknown`. Deterministic tool output outranks model confidence. Missing validation remains missing.
+
+## Safety
+Do not perform destructive/history-rewriting Git actions, credential-sensitive actions, production-impacting operations, push, or merge without explicit approval.
+
+If checkpoint/context integrity fails, stop mutation and switch to read-only planning until restored.
