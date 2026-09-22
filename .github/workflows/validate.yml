@@ -12,9 +12,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: python3 scripts/sync_skills.py
-      - run: python3 scripts/validate_repo.py
-      - run: git diff --exit-code
+
+      - name: Mirror canonical skills to Claude
+        run: python3 scripts/sync_skills.py
+
+      - name: Validate framework structure and parity
+        run: python3 scripts/validate_repo.py
+
+      - name: Validate skill eval fixtures
+        run: python3 scripts/validate_evals.py
+
+      - name: Assert generated mirrors are committed
+        run: git diff --exit-code
