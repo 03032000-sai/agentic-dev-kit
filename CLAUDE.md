@@ -30,6 +30,13 @@ This workflow performs Stage 0 bootstrap, Change Brief + mechanical DoD, branch/
 - `/multi-repo-bootstrap`
 - `/business-docs-loop`
 - `/skill-scaffolding`
+- `/agent-alignment`
+- `/checkpoint-resume`
+- `/clean-validation`
+- `/project-traceability`
+- `/test-oracle-design`
+- `/observability-evidence`
+- `/replay-debugging`
 
 Use `/agents` to inspect available specialist agents.
 

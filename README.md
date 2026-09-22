@@ -424,6 +424,8 @@ brownfield-bootstrap: Establish the current design of this repo before changes.
 
 Use `/agents` to inspect specialist roles.
 
+For stage-level operation, GitHub Copilot also exposes direct prompt launchers for bootstrap, system design, Gate A, implementation design, Gate B, implementation slices, local/clean validation, Gate C, traceability, Git handoff, context compaction, test-oracle design, observability evidence, and replay debugging.
+
 ### OpenAI Codex
 
 ```text

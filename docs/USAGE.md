@@ -102,3 +102,25 @@ GitHub Copilot prompt launchers exist for each of these under `.github/prompts/`
 - run at most four substantial implementation iterations per session;
 - one role owns repository mutation at a time;
 - Git Manager is the sole commit writer.
+
+## Direct Gate / Stage Launchers in GitHub Copilot
+
+The ".github/prompts" directory also exposes direct stage controls:
+
+- `bootstrap-repo`
+- `system-design`
+- `gate-a-review`
+- `implementation-design`
+- `gate-b-review`
+- `implement-feature`
+- `local-validate`
+- `clean-validate`
+- `gate-c-review`
+- `project-traceability`
+- `git-handoff`
+- `context-compact`
+- `design-test-oracles`
+- `observability-evidence`
+- `replay-debugging`
+
+These are useful when a user wants to invoke one explicit stage rather than the full incremental loop.

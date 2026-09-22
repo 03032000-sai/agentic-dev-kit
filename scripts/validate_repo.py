@@ -53,6 +53,8 @@ required_roles = {
     "implementation-critic",
     "map-critic",
     "findings-critic",
+    "implementation-executor",
+    "git-repo-manager",
 }
 
 required_prompts = {
@@ -69,6 +71,22 @@ required_prompts = {
     "multi-repo-bootstrap",
     "business-docs-loop",
     "skill-scaffolding",
+    "bootstrap-repo",
+    "system-design",
+    "implementation-design",
+    "gate-a-review",
+    "gate-b-review",
+    "gate-c-review",
+    "local-validate",
+    "clean-validate",
+    "git-handoff",
+    "agent-alignment",
+    "resume-checkpoint",
+    "context-compact",
+    "project-traceability",
+    "design-test-oracles",
+    "observability-evidence",
+    "replay-debugging",
 }
 
 required_eval_skills = {
