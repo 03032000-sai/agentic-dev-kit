@@ -21,3 +21,7 @@ htmlcov/
 *.key
 *.log
 tmp/
+
+# Runtime agent state
+.agents/checkpoints/
+.agents/asset-index.json

@@ -20,6 +20,9 @@ jobs:
       - name: Mirror canonical skills to Claude
         run: python3 scripts/sync_skills.py
 
+      - name: Build deterministic agentic asset index
+        run: python3 scripts/build_asset_index.py --output /tmp/agentic-assets.json
+
       - name: Validate framework structure and parity
         run: python3 scripts/validate_repo.py
 

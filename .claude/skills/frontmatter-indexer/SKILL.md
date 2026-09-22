@@ -40,3 +40,12 @@ Write a deterministic JSON/Markdown index suitable for discovery and CI diffing.
 
 ## Validation
 Run twice with unchanged inputs and require identical output. Add a negative fixture for malformed frontmatter and duplicate names.
+
+## Repository helper
+This framework includes a deterministic helper:
+
+~~~bash
+python3 scripts/build_asset_index.py --output .agents/asset-index.json
+~~~
+
+The generated file is runtime/discovery state and is gitignored by default. CI also builds the index to prove all supported frontmatter is parseable.
