@@ -1,0 +1,29 @@
+{
+  "skill": "uv-python",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "uv-repo",
+      "prompt": "This repo already uses uv. Add the test dependency and keep the lockfile reproducible.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "established-poetry",
+      "prompt": "This repo uses Poetry and no migration was requested. Add one dependency.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "respect established repository tooling",
+    "keep pyproject authoritative when uv is used",
+    "update lock deterministically",
+    "validate from fresh environment"
+  ],
+  "forbidden_behaviors": [
+    "churn package tooling during unrelated work",
+    "manually edit resolved lock content",
+    "force uv over an established workflow without approval"
+  ]
+}

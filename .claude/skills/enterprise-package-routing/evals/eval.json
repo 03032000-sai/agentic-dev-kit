@@ -1,0 +1,30 @@
+{
+  "skill": "enterprise-package-routing",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "private-registry",
+      "prompt": "Configure this project to resolve our scoped private packages and public packages safely.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "public-only",
+      "prompt": "Install lodash from the public npm registry.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "separate registry config from credentials",
+    "prefer scope/source mapping",
+    "preserve lockfile integrity",
+    "validate known private and public package resolution",
+    "avoid dependency-confusion fallback"
+  ],
+  "forbidden_behaviors": [
+    "commit plaintext credentials",
+    "log tokens",
+    "silently fall back to similarly named public packages"
+  ]
+}

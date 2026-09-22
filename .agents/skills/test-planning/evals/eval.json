@@ -1,0 +1,28 @@
+{
+  "skill": "test-planning",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "validation-plan",
+      "prompt": "Create a test plan for the new retry semantics including failure paths and rollback.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "run-tests",
+      "prompt": "Run pytest.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "map requirements and risks to deterministic checks",
+    "cover happy negative boundary and failure paths",
+    "distinguish existing from planned tests",
+    "include environment and expected evidence"
+  ],
+  "forbidden_behaviors": [
+    "call a planned test passing evidence",
+    "omit security or concurrency cases when relevant"
+  ]
+}

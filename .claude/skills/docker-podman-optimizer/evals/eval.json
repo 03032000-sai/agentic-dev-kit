@@ -1,0 +1,30 @@
+{
+  "skill": "docker-podman-optimizer",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "slow-image",
+      "prompt": "Optimize this Dockerfile for cache reuse and smaller reproducible images.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "k8s",
+      "prompt": "Tune Kubernetes HPA thresholds.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "preserve application semantics",
+    "keep dependencies container-native unless compatibility is proven",
+    "optimize layer and cache ordering",
+    "use dockerignore and multi-stage builds where appropriate",
+    "validate clean build and runtime smoke"
+  ],
+  "forbidden_behaviors": [
+    "copy host node_modules or virtualenv blindly",
+    "leak credentials into images",
+    "optimize by weakening reproducibility"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "skill": "mitre-attack-mapping",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "coverage-map",
+      "prompt": "Map these normalized security finding categories to our reviewed MITRE ATT&CK mapping table.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "freeform-threat",
+      "prompt": "Guess which ATT&CK techniques an attacker might use against this app.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "use a versioned deterministic mapping table",
+    "record finding category and mapped technique",
+    "leave unmatched findings unmapped",
+    "separate coverage mapping from proof of attack"
+  ],
+  "forbidden_behaviors": [
+    "free-associate technique IDs",
+    "force low-confidence mappings",
+    "claim eliminating one finding removes an entire ATT&CK technique"
+  ]
+}

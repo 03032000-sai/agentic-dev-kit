@@ -1,0 +1,30 @@
+{
+  "skill": "repo-discovery",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "task-map",
+      "prompt": "Find the files and execution path involved in invoice cancellation without changing code.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "edit-now",
+      "prompt": "Change the cancellation timeout to 30 seconds.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "read instructions manifests and indexes first",
+    "use progressive disclosure",
+    "produce task-focused file symbol and behavior maps",
+    "classify evidence",
+    "stay read-only"
+  ],
+  "forbidden_behaviors": [
+    "read the whole repository by default",
+    "modify product code",
+    "treat stale documentation as verified behavior"
+  ]
+}

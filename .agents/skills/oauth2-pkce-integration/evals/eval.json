@@ -1,0 +1,30 @@
+{
+  "skill": "oauth2-pkce-integration",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "browser-login",
+      "prompt": "Implement Authorization Code with PKCE for this public web client.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "api-key",
+      "prompt": "Add API-key authentication for an internal service.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "use high-entropy verifier and S256 challenge",
+    "validate state/session binding",
+    "enforce exact redirect behavior",
+    "request least privilege scopes",
+    "test denied consent invalid state and verifier failure"
+  ],
+  "forbidden_behaviors": [
+    "commit secrets or tokens",
+    "treat a public client secret as confidentiality",
+    "copy broad sample scopes without need"
+  ]
+}

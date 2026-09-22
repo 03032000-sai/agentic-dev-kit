@@ -1,0 +1,29 @@
+{
+  "skill": "vuln-enrichment-prioritization",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "prioritize-findings",
+      "prompt": "Enrich these scanner findings with KEV, EPSS, and reachability so we can prioritize remediation.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "scan",
+      "prompt": "Run Trivy against the lockfile.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "preserve source scanner severity",
+    "add KEV EPSS advisory and reachability context",
+    "use transparent prioritization rationale",
+    "degrade explicitly when enrichment is unavailable"
+  ],
+  "forbidden_behaviors": [
+    "erase findings because enrichment is missing",
+    "present model-generated numeric risk as objective truth",
+    "confuse severity with exploitability"
+  ]
+}

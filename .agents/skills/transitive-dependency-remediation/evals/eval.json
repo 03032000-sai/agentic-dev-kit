@@ -1,0 +1,29 @@
+{
+  "skill": "transitive-dependency-remediation",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "indirect-cve",
+      "prompt": "A vulnerable package is transitive. Fix the resolved graph without forking it.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "direct-feature-upgrade",
+      "prompt": "Upgrade our direct framework dependency for new features.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "use ecosystem-native override or upstream upgrade",
+    "prefer lowest compatible fixed version",
+    "verify resolved dependency graph",
+    "rerun SCA and tests"
+  ],
+  "forbidden_behaviors": [
+    "claim success from manifest edits alone",
+    "vendor or fork unnecessarily",
+    "introduce unrelated major-version churn"
+  ]
+}

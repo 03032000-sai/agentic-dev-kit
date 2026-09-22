@@ -1,0 +1,30 @@
+{
+  "skill": "system-design",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "design-contract",
+      "prompt": "Design how idempotent payment retries should work before implementation.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "code-task",
+      "prompt": "Implement the retry helper in retry.py.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "define boundaries responsibilities and contracts",
+    "define invariants and flows",
+    "cover failure security reliability and observability",
+    "keep implementation detail secondary",
+    "require fresh Gate A critique"
+  ],
+  "forbidden_behaviors": [
+    "write production code",
+    "self-approve Gate A",
+    "hide unresolved design questions"
+  ]
+}

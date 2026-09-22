@@ -1,0 +1,30 @@
+{
+  "skill": "implementation-design",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "technical-plan",
+      "prompt": "Turn the approved rate-limiting system design into an exact repository implementation plan.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "abstract-design",
+      "prompt": "Define the system-level rate-limiting contract.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "name exact files modules symbols and APIs",
+    "define state dependencies and errors",
+    "specify tests telemetry rollout rollback",
+    "provide exact validation commands",
+    "reopen Gate A for missing architecture"
+  ],
+  "forbidden_behaviors": [
+    "implement production code",
+    "invent architecture inside the technical plan",
+    "self-approve Gate B"
+  ]
+}
