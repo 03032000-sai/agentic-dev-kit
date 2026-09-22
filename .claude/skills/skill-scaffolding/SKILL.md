@@ -1,7 +1,40 @@
 ---
 name: skill-scaffolding
-description: Author a new grounded skill (and its eval fixture) for a tool or technology this repository actually uses.
+description: Create or extend a grounded repository skill with routing metadata, evidence, examples, and behavioral eval fixtures.
 ---
 
 # Skill Scaffolding
-Before authoring a new skill, confirm the tool/technology is actually present in this repository (config file, dependency manifest, CI step) — never scaffold a skill for a hypothetical stack. Ground every guidance line in a cited real file from this repo. Write the skill in the existing dense, single-paragraph style used by other skills in `.agents/skills/`. Pair it with a minimal eval fixture (a representative task plus an expected-good-output check) so the skill's guidance is verifiable, not just aspirational. Do not scaffold a skill that duplicates an existing one — extend the existing skill instead.
+
+## Preconditions
+Before creating a skill:
+1. confirm the tool/technology/workflow is actually used or intentionally being introduced;
+2. search existing skills for overlap;
+3. prefer extending an existing skill to creating a near-duplicate.
+
+## Skill contract
+Each skill must include:
+- canonical `name`;
+- routing-quality `description` explaining when to use it;
+- mission/scope;
+- concrete operating rules;
+- safety/stop conditions;
+- validation expectations;
+- conflict/precedence rules when relevant;
+- examples only when they add behavioral clarity.
+
+## Grounding
+Guidance must be grounded in repository conventions or authoritative technology behavior. Do not fabricate package names, commands, endpoints, or policy.
+
+## Evals
+Add at least:
+- positive trigger case;
+- negative trigger case;
+- expected required behavior;
+- prohibited behavior;
+- simple output assertions.
+
+## Cross-tool parity
+Canonical skill lives in `.agents/skills/<name>/`. Mirror the complete directory to `.claude/skills/<name>/` using the repository sync mechanism.
+
+## Completion
+Run structural validation and skill eval validation. A skill is not complete merely because `SKILL.md` exists.
