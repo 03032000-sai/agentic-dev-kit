@@ -36,4 +36,4 @@ Use `/agents` to inspect available specialist agents.
 ## Context rule
 Do not load the repository wholesale. Prefer instructions/checkpoint → indexes/manifests → targeted files → direct dependencies → deeper evidence only when needed.
 
-Critics should receive fresh, minimal context rather than the author's full transcript.
+Critics should receive fresh, minimal context rather than the author's full transcript.\n\nKeep active context below roughly 80%; checkpoint and compact/start fresh before crossing that threshold. Run at most four substantial implementation iterations in one session. Only one role owns repository mutation at a time, and Git Manager is the sole commit writer.

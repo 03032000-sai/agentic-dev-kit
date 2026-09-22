@@ -28,4 +28,4 @@ Classify meaningful claims as `confirmed`, `documented`, `inferred`, or `unknown
 ## Safety
 Do not perform destructive/history-rewriting Git actions, credential-sensitive actions, production-impacting operations, push, or merge without explicit approval.
 
-If checkpoint/context integrity fails, stop mutation and switch to read-only planning until restored.
+If checkpoint/context integrity fails, stop mutation and switch to read-only planning until restored.\n\nTarget less than 80% active context, checkpoint/compact before crossing it, and run at most four substantial implementation iterations per session. Enforce single-writer mutation ownership; Git Manager alone creates commits.

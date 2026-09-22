@@ -19,6 +19,6 @@ Required behavior:
 10. run fresh Gate C critique;
 11. produce traceability and PR-ready Git handoff.
 
-If a gate fails, route back to the responsible stage. If checkpoint/context integrity fails, stop mutation and operate read-only.
+If a gate fails, route back to the responsible stage. If checkpoint/context integrity fails, stop mutation and operate read-only. Keep active context below roughly 80%; checkpoint/compact before crossing it. Only one role owns repository mutation at a time and Git Manager is the sole commit writer.
 
 At every pause report current stage, current gate, artifacts produced, deterministic evidence, open findings/risks, checkpoint state, and recommended next agent/action.
