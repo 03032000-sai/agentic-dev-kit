@@ -1,7 +1,42 @@
 ---
 name: semgrep-sast-rules
-description: Author and extend Semgrep SAST rules with safe, reviewable autofix templates.
+description: Author, test, tune, and operationalize precise Semgrep SAST rules with controlled autofix boundaries.
 ---
 
 # Semgrep SAST Rules
-Write Semgrep rules scoped to a specific vulnerability pattern with a precise `message`, `severity`, and language-appropriate `metadata` (CWE/OWASP mapping). Prefer narrow `pattern`/`pattern-either` matches over broad regex to minimize false positives. For Tier-1 findings (unambiguous, mechanical fixes), pair the rule with an autofix template and require a passing test fixture (true positive + true negative) before enabling it in CI. Never auto-apply a fix that changes authentication, authorization, or cryptographic behavior without human review.
+
+## Goal
+Create narrow, reviewable static-analysis rules that detect a specific code pattern with acceptable false-positive/false-negative behavior.
+
+## Rule design
+Each rule should define:
+- stable rule ID;
+- languages;
+- severity;
+- precise message;
+- CWE and/or OWASP metadata where applicable;
+- references/rationale;
+- focused `pattern`, `pattern-either`, metavariable constraints, or taint mode;
+- optional safe autofix only for mechanical transformations.
+
+Prefer semantic patterns over broad regex.
+
+## Test fixture
+Every custom rule should have:
+- at least one true-positive fixture;
+- at least one true-negative fixture;
+- expected finding count/location;
+- autofix expectation if enabled.
+
+For data-flow bugs, consider a companion taint rule rather than stretching a simple pattern beyond reliability.
+
+## Autofix tiers
+**Tier 1 — mechanical:** may be proposed automatically after fixtures pass.
+**Tier 2 — semantic:** generate guidance/patch for human review.
+**Tier 3 — security-boundary:** never auto-apply changes to authn/authz, crypto, trust boundaries, or secret handling.
+
+## CI behavior
+Fail or warn according to repository policy, but never report "no findings" when the rule pack failed to load or target files were not scanned.
+
+## Verification
+After remediation, run the exact rule against the changed code and its fixtures; preserve the result in validation evidence.

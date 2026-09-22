@@ -1,7 +1,28 @@
 ---
 name: mitre-attack-mapping
-description: Deterministically map enriched security findings to MITRE ATT&CK techniques for coverage reporting.
+description: Deterministically map security finding categories to MITRE ATT&CK techniques for coverage reporting without model free-association.
 ---
 
 # MITRE ATT&CK Mapping
-Map each enriched finding to a MITRE ATT&CK technique using a static, deterministic pattern table (finding category/CWE → technique ID) — never let a model free-associate a technique ID. Track pre-fix and post-fix technique coverage to show remediation impact. Leave a finding unmapped rather than forcing a low-confidence match.
+
+## Principle
+ATT&CK mapping is a coverage/reporting layer, not proof that an adversary executed a technique.
+
+## Deterministic mapping
+Use a versioned static mapping table from finding category/CWE/rule family to candidate ATT&CK technique IDs. The table should be reviewed and stored with the project.
+
+Do not ask a model to invent technique IDs from prose.
+
+## Mapping record
+Capture:
+- finding/rule ID;
+- CWE/category;
+- mapped ATT&CK technique ID/name;
+- mapping-table version/source;
+- confidence rule;
+- status: mapped | unmapped.
+
+If no reviewed mapping exists, leave the finding unmapped.
+
+## Coverage
+Compare pre-remediation and post-remediation technique coverage for reporting. Do not imply that closing one finding eliminates the entire ATT&CK technique from the system.
