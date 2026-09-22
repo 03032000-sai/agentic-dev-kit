@@ -51,7 +51,7 @@ There is no Python runtime or orchestration server in v0.2. The repository itsel
 
 ## Additional skills
 
-Narrow, reusable skills invoked by the loops above or directly when relevant: `semgrep-sast-rules`, `trivy-sca-scanning`, `mitre-attack-mapping`, `transitive-dependency-remediation`, `vuln-enrichment-prioritization`, `docker-podman-optimizer`, `uv-python`, `oauth2-pkce-integration`, `skill-scaffolding`.
+Narrow, reusable skills invoked by the loops above or directly when relevant: `semgrep-sast-rules`, `trivy-sca-scanning`, `mitre-attack-mapping`, `transitive-dependency-remediation`, `vuln-enrichment-prioritization`, `docker-podman-optimizer`, `uv-python`, `oauth2-pkce-integration`, `private-package-registry-config`, `frontmatter-indexer`, `skill-scaffolding`.
 
 ## How to invoke
 

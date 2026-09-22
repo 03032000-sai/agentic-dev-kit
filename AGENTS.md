@@ -54,7 +54,7 @@ Implementation must follow approved scope, pass relevant local validation, pass 
 ## Extended workflows
 
 - **Multi-Repo Bootstrap** — optional. Use `multi-repo-bootstrap` to onboard multiple Git repositories into `repos/<name>/` before a cross-repo workflow. The wrapper repository (this repo) tracks only the agent engine; sub-repos keep their own independent git. See `docs/contracts/multi-repo.md`.
-- **Business Documentation** — use `business-docs-loop` when the deliverable is plain-language business documentation instead of code. Adds seven specialist roles (scope intake, codebase cartography, domain glossary, business-rule mining, process-capability mapping, doc writing, doc publishing); reuses Independent Critic at each checkpoint.
+- **Business Documentation** — use `business-docs-loop` when the deliverable is plain-language business documentation instead of code. Adds seven specialist roles (scope intake, codebase cartography, domain glossary, business-rule mining, process-capability mapping, doc writing, doc publishing) plus three fresh-context critics (map, findings, business-review). See `docs/contracts/business-docs.md` for the full comprehension/evidence/gate contract.
 
 ## Change Brief
 
