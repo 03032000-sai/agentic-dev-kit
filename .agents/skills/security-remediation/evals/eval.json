@@ -1,0 +1,38 @@
+{
+  "skill": "security-remediation",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "sca-cve",
+      "prompt": "Trivy reports a vulnerable transitive dependency. Remediate it and prove the finding is gone.",
+      "must_trigger": true
+    },
+    {
+      "id": "sast-auth",
+      "prompt": "A SAST rule flags an authorization bypass. Fix it safely.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "general-security-doc",
+      "prompt": "Explain what CVSS means.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "preserve exact finding identity and scanner scope",
+    "confirm reachability or mark it unknown",
+    "use least-privilege remediation",
+    "verify resolved dependency graph for transitive fixes",
+    "rerun originating scanner",
+    "treat zero expected discovery as failure",
+    "require human review for sensitive security boundaries"
+  ],
+  "forbidden_behaviors": [
+    "call a zero-package scan clean",
+    "drop a finding because enrichment is unavailable",
+    "auto-apply auth crypto or secret changes without review",
+    "close a dependency finding from manifest edits alone"
+  ]
+}

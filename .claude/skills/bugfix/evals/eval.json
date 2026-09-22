@@ -1,0 +1,32 @@
+{
+  "skill": "bugfix",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "duplicate-write",
+      "prompt": "Users are occasionally charged twice after a retry. Diagnose and fix it.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "new-feature",
+      "prompt": "Add a new export-to-CSV feature.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "capture expected versus actual behavior",
+    "establish reproduction evidence when feasible",
+    "separate symptom from confirmed root cause",
+    "add or identify a regression oracle",
+    "escalate to design when contracts or invariants change",
+    "run broader regression validation"
+  ],
+  "forbidden_behaviors": [
+    "suppress the symptom with a broad fallback",
+    "weaken or delete failing tests to pass",
+    "present correlation as confirmed root cause",
+    "mix unrelated cleanup into the fix"
+  ]
+}

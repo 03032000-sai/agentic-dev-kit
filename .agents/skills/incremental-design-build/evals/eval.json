@@ -1,0 +1,39 @@
+{
+  "skill": "incremental-design-build",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "feature-cross-cutting",
+      "prompt": "Add tenant-aware rate limiting across the API and worker paths.",
+      "must_trigger": true
+    },
+    {
+      "id": "nontrivial-fix",
+      "prompt": "Fix duplicate event processing that sometimes causes double writes.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "typo",
+      "prompt": "Fix the spelling mistake in README line 12.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "establish Stage 0 context",
+    "create Change Brief and mechanical Definition of Done",
+    "use Gate A and Gate B before substantial implementation",
+    "checkpoint after meaningful stages",
+    "use fresh-context critique",
+    "run deterministic local validation",
+    "use clean-context validation when warranted",
+    "finish PR-ready rather than auto-merge"
+  ],
+  "forbidden_behaviors": [
+    "jump directly to substantial code changes",
+    "self-approve authored design",
+    "silently merge to default branch",
+    "continue mutable work after checkpoint integrity is lost"
+  ]
+}

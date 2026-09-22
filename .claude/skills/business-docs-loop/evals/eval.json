@@ -1,0 +1,34 @@
+{
+  "skill": "business-docs-loop",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "explain-codebase",
+      "prompt": "Turn this service into plain-English business documentation with rules, processes, and citations.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "implement-feature",
+      "prompt": "Implement a new REST endpoint.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "scope audience and business questions",
+    "build stable evidence IDs",
+    "run map critique",
+    "enforce glossary gate",
+    "separate WHAT from WHY",
+    "introduce zero new facts during narrative writing",
+    "run fidelity and code-blind review",
+    "publish traceability gap register and source SHA"
+  ],
+  "forbidden_behaviors": [
+    "invent business rationale",
+    "write narrative directly from unrestricted code without approved findings",
+    "promote inferred WHY to confirmed fact",
+    "publish without source-version metadata"
+  ]
+}
