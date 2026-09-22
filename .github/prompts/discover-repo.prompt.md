@@ -1,8 +1,12 @@
 ---
-description: Discover an unfamiliar repository and produce a task-focused evidence map before design or implementation.
+description: Establish fresh repository context and produce a task-focused evidence map without modifying product code.
 agent: repo-analyst
 ---
 
-Read `AGENTS.md` and use the `repo-discovery` skill. Analyze the repository for the user's task without modifying code.
+Read `AGENTS.md`.
 
-Return relevant structure, files/symbols, current behavior, tests/validation commands, constraints, confirmed facts vs inferences, unknowns/risks, and the recommended next role.
+For an unfamiliar or stale-context repository, begin with Repository Bootstrapper behavior, then use `repo-discovery`.
+
+Capture repo/branch/HEAD SHA, instructions, stack, build/test/deploy entry points, task-relevant structure, current behavior, tests, dependencies, docs/code drift, and confirmed/documented/inferred/unknown facts.
+
+Use progressive disclosure rather than reading the whole repository. Return a compact Stage 0/evidence packet and recommended next role. Do not modify product code.

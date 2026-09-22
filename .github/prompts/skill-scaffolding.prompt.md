@@ -1,9 +1,11 @@
 ---
-description: Author a new grounded skill and eval fixture for a tool this repository actually uses.
+description: Create or extend a grounded repository skill with routing metadata, conflict rules, validation guidance, and positive/negative eval fixtures.
 ---
 
-Read `AGENTS.md`.
+Read `AGENTS.md` and invoke `skill-scaffolding`.
 
-Use the `skill-scaffolding` skill. Ground every guidance line in a cited real file; do not scaffold a skill for a tool this repository doesn't actually use.
+First confirm the technology/workflow is actually used or intentionally being introduced and search for overlapping skills. Prefer extending an existing skill over creating a duplicate.
 
-Finish with current stage, artifacts produced, validation evidence, blocking findings, remaining risks, and recommended next action.
+Create/update the canonical `.agents/skills/<name>/` skill with routing-quality frontmatter, concrete operating/safety/validation rules, and `evals/eval.json` containing positive/negative trigger cases plus required/forbidden behaviors.
+
+Mirror through the repository skill-sync mechanism and run structural/eval validation.

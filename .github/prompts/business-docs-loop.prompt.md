@@ -1,9 +1,9 @@
 ---
-description: Turn a codebase into cited, plain-language business documentation for non-technical readers.
+description: Turn code/config/tests into cited business-readable documentation using stable IDs, glossary/rule/process gates, fidelity review, and publication traceability.
 ---
 
-Read `AGENTS.md`.
+Read `AGENTS.md` and invoke `business-docs-loop`.
 
-Use the `business-docs-loop` skill. Maintain a documentation-scoped Change Brief. Do not skip the glossary gate or the fresh-critic checkpoints before narrative writing and before publishing.
+Maintain a documentation-scoped Change Brief and source SHA(s). Run scope intake → codebase map + stable IDs → fresh Map Critic → glossary gate → business-rule mining with WHAT/WHY separation → fresh Findings Critic → capability/process mapping → narrative writer with zero new facts → fidelity review → code-blind reader review → publisher.
 
-Finish with current stage, artifacts produced, validation evidence, blocking findings, remaining risks, and recommended next action.
+Publish narrative, diagrams, glossary, traceability matrix, gap register, coverage report, and source SHA(s). Never invent business rationale.

@@ -1,26 +1,83 @@
-# Chat Usage Cheat Sheet
+# Usage Guide
+
+The repository is designed to be used directly from chat. No orchestration server is required.
+
+## Pick the workflow first
+
+| Need | Workflow |
+|---|---|
+| substantial feature / behavior change | `incremental-design-build` |
+| new feature specifically | `feature-development` |
+| non-trivial bug | `bugfix` |
+| unfamiliar repository | `brownfield-bootstrap` |
+| architecture/current-state question | `knowledge-discovery` or `architecture-analysis` |
+| reconstruct design from code | `reverse-engineer-design` |
+| docs drift | `docs-code-alignment` |
+| behavior-preserving refactor | `safe-refactor` |
+| security finding | `security-remediation` |
+| pre-release evidence | `release-readiness` |
+| multiple repositories | `multi-repo-bootstrap` |
+| business-facing docs from code | `business-docs-loop` |
 
 ## GitHub Copilot
-Select a custom role from the Agent picker, or run a workflow from the prompt-file picker.
+
+Use the Agent picker for specialist roles such as System Designer, Implementer, Design Critic, or Git Manager.
+
+Use prompt files for complete workflows. Examples:
+
+```text
+Run incremental-design-build for: Add rate limiting to the public API.
+Run bugfix for: Duplicate events are creating two records.
+Run brownfield-bootstrap for this repository before we change anything.
+```
 
 ## Claude Code
-Use `/agents` to inspect roles.
-Examples:
-`/incremental-design-build Add pagination`
-`/bugfix Fix duplicate notifications`
-`/knowledge-discovery Explain authentication`
 
-## Codex
-Examples:
-`$incremental-design-build Add pagination`
-`$bugfix Fix duplicate notifications`
-`$knowledge-discovery Explain authentication`
+Claude reads `CLAUDE.md` and the canonical `AGENTS.md`.
 
-Recommended everyday mapping:
-feature/non-trivial change → incremental-design-build
-bug → bugfix
-unknown repo → brownfield-bootstrap
-architecture question → knowledge-discovery
-refactor → safe-refactor
-security issue → security-remediation
-release → release-readiness
+Examples:
+
+```text
+/incremental-design-build Add rate limiting to the public API.
+/bugfix Fix duplicate event processing.
+/knowledge-discovery Explain the authentication flow.
+/business-docs-loop Create business-readable documentation for this service.
+```
+
+Use `/agents` to inspect specialist agents.
+
+## OpenAI Codex
+
+Codex uses the root `AGENTS.md` and canonical skills under `.agents/skills/`.
+
+Examples:
+
+```text
+$incremental-design-build Add rate limiting.
+$bugfix Fix duplicate notifications.
+$knowledge-discovery Explain authentication.
+```
+
+## What a good run looks like
+
+A substantial run should visibly move through:
+1. Stage 0 context;
+2. Change Brief + DoD;
+3. safe branch/checkpoint;
+4. Gate A;
+5. Gate B;
+6. bounded implementation;
+7. local validation;
+8. clean validation when required;
+9. Gate C;
+10. traceability + PR-ready handoff.
+
+If the assistant jumps straight from requirement to code, ask it to restart with the canonical workflow.
+
+## Checkpoints
+
+Long tasks should checkpoint after major stages. If the session is compacted or restarted, reload the checkpoint and approved artifacts rather than relying on memory.
+
+## Safety
+
+Push, merge, destructive Git, credential-sensitive, security-boundary, or production-impacting actions remain explicit human decisions unless the user has already approved that exact operation.

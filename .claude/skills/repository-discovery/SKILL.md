@@ -1,7 +1,10 @@
 ---
 name: repository-discovery
-description: Discover only repository evidence needed for a task before design/implementation.
+description: Compatibility alias for the canonical repo-discovery skill; use when older prompts refer to repository-discovery.
 ---
 
-# Repository Discovery
-Use progressive disclosure: instructions → root structure → manifests/config → architecture/docs → likely entry points → task-relevant code paths → relevant tests. Output an evidence map. Do not implement.
+# Repository Discovery Compatibility Alias
+
+The canonical skill is `repo-discovery`.
+
+When invoked, follow the `repo-discovery` skill and preserve the same progressive-disclosure, evidence-classification, read-only discovery, and output rules. Do not create a second divergent discovery process.

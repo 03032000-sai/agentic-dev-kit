@@ -1,8 +1,12 @@
 ---
-description: Implement an approved technical plan with minimal scope and deterministic validation.
+description: Implement one approved technical-design slice with checkpointing and deterministic validation.
 agent: implementer
 ---
 
-Read `AGENTS.md` and the approved implementation plan. Implement exactly the approved scope, update tests, and run deterministic validation.
+Read `AGENTS.md`, the Change Brief/DoD, approved System Design, approved Implementation Design, and current checkpoint.
 
-If the plan conflicts with repository reality, stop and surface the conflict. Finish with changed files, validation commands/results, and unresolved risks.
+Implement only the next approved slice. Reload only required current evidence, change the smallest necessary files, update tests with behavior, run or request targeted deterministic validation, and update the checkpoint.
+
+If repository reality conflicts with the approved plan or requires a new architectural decision, stop and escalate instead of silently redesigning.
+
+Return changed files, validation evidence, checkpoint state, unresolved issues, and recommended next action. Do not merge or push unless separately authorized.
