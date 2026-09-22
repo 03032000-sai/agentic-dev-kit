@@ -12,6 +12,10 @@
 - repository-native skill eval fixtures
 - extensive Mermaid architecture/workflow diagrams
 - cross-tool semantic parity for GitHub Copilot, Claude Code, and OpenAI Codex
+- hard context ceiling (<80%), maximum four substantial implementation iterations/session, and single-writer commit ownership
+- deterministic frontmatter asset indexing
+- reusable Change Brief/checkpoint/design/critic/traceability templates and worked examples
+- eval fixtures for every canonical skill except the legacy compatibility alias
 
 ## v0.3.0
 - multi-repo bootstrap capability

@@ -319,6 +319,8 @@ A scanner that discovers zero expected packages/files/rules is **not** a clean s
 - Local Operator
 - Clean-Repo Operator
 - Git Manager
+- Implementation Executor *(compatibility alias for Implementer)*
+- Git Repo Manager *(compatibility alias for Git Manager)*
 - Traceability Analyst
 - Project Traceability
 - Docs-Code Aligner
@@ -362,6 +364,12 @@ A scanner that discovers zero expected packages/files/rules is **not** a clean s
 
 ### Analysis / control
 - `repo-discovery`
+- `agent-alignment`
+- `checkpoint-resume`
+- `clean-validation`
+- `project-traceability`
+- `test-oracle-design`
+- `observability-evidence`
 - `architecture-analysis`
 - `system-design`
 - `implementation-design`
@@ -424,6 +432,19 @@ $bugfix Fix duplicate event processing.
 $knowledge-discovery Explain authentication.
 ```
 
+## Reusable artifact templates
+
+Blank governance artifacts live under `.agents/templates/`:
+
+- Change Brief
+- durable checkpoint
+- System Design
+- Implementation Design
+- critic findings
+- traceability matrix
+
+Worked generic examples live under `examples/` and show how Gate A/B/C artifacts connect without exposing any employer-specific implementation.
+
 ## Skill evals
 
 High-value skills include repository-native eval fixtures under:
@@ -432,7 +453,7 @@ High-value skills include repository-native eval fixtures under:
 .agents/skills/<skill>/evals/eval.json
 ```
 
-Evals define positive/negative trigger cases, required behaviors, and forbidden behaviors. Claude skill directories are mirrored from the canonical `.agents/skills` tree.
+Evals define positive/negative trigger cases, required behaviors, and forbidden behaviors. Every canonical skill currently carries an eval except the legacy `repository-discovery` compatibility alias. Claude skill directories are mirrored from the canonical `.agents/skills` tree.
 
 ## Validation
 

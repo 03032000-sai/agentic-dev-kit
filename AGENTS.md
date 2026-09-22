@@ -243,6 +243,12 @@ Security tooling is authoritative for what it actually scanned. Examples:
 - vulnerability prioritization may enrich severity with exploitability/reachability signals, but enrichment does not erase scanner evidence;
 - automatic fixes must not weaken authentication, authorization, cryptography, or secret handling.
 
+## Reusable artifact templates
+
+Canonical blank forms live under `.agents/templates/` for Change Briefs, checkpoints, System Design, Implementation Design, critic findings, and traceability. Agents should reuse these shapes when a host repository has not defined its own stronger template.
+
+Compatibility role names `implementation-executor` and `git-repo-manager` map to the canonical Implementer and Git Manager responsibilities; they do not create separate authority models.
+
 ## Completion contract
 
 A task is complete only when:

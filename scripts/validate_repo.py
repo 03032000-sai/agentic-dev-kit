@@ -27,6 +27,12 @@ required_files = [
     "docs/workflows/brownfield-preloop.md",
     "docs/workflows/context-governance.md",
     "docs/workflows/agent-alignment.md",
+    ".agents/templates/change-brief.md",
+    ".agents/templates/checkpoint.yaml",
+    ".agents/templates/system-design.md",
+    ".agents/templates/implementation-design.md",
+    ".agents/templates/critic-findings.md",
+    ".agents/templates/traceability.md",
 ]
 
 required_roles = {
@@ -218,7 +224,9 @@ missing_prompts = sorted(required_prompts - prompt_stems)
 if missing_prompts:
     fail(f"missing required workflow prompts: {', '.join(missing_prompts)}")
 
-for skill in sorted(required_eval_skills):
+compatibility_aliases = {"repository-discovery"}
+expected_eval_skills = canonical_skills - compatibility_aliases
+for skill in sorted(expected_eval_skills):
     path = canonical_root / skill / "evals" / "eval.json"
     if not path.is_file():
         fail(f"missing required eval fixture: {path.relative_to(ROOT)}")
@@ -252,5 +260,5 @@ print("VALIDATION PASSED")
 print(f" - GitHub/Claude agents: {len(gh_stems)}")
 print(f" - canonical/mirrored skills: {len(canonical_skills)}")
 print(f" - GitHub workflow prompts: {len(prompt_stems)}")
-print(f" - required eval fixtures: {len(required_eval_skills)}")
+print(f" - required eval fixtures: {len(expected_eval_skills)}")
 print(f" - README Mermaid diagrams: {readme.count(mermaid_marker)}")

@@ -81,3 +81,24 @@ Long tasks should checkpoint after major stages. If the session is compacted or 
 ## Safety
 
 Push, merge, destructive Git, credential-sensitive, security-boundary, or production-impacting actions remain explicit human decisions unless the user has already approved that exact operation.
+
+## Operational helpers
+
+For long or highly governed work, these smaller workflow skills can be invoked directly:
+
+- `agent-alignment` — align specialist roles before Gate A.
+- `checkpoint-resume` — safely resume from durable state and reconcile SHA drift.
+- `clean-validation` — prove reproducibility without destroying the active working tree.
+- `project-traceability` — refresh REQ → DES → IMP → VAL/FND/RSK links.
+- `test-oracle-design` — turn acceptance criteria into mechanical pass/fail evidence.
+- `observability-evidence` — define/verify logs, metrics, traces, and budgets.
+
+GitHub Copilot prompt launchers exist for each of these under `.github/prompts/`.
+
+## Hard operating limits
+
+- target less than 80% active model context;
+- checkpoint and compact/start fresh before crossing it;
+- run at most four substantial implementation iterations per session;
+- one role owns repository mutation at a time;
+- Git Manager is the sole commit writer.
