@@ -1,16 +1,10 @@
 ---
 name: architecture-analysis
-description: Analyze or design software architecture from repository evidence and requirements. Use for boundaries, contracts, invariants, data/state flows, failure modes, or architecture review. Do not use for direct code implementation.
+description: Analyze existing architecture boundaries, contracts, flows, state, failure modes, and cross-cutting concerns from repository evidence.
 ---
 
 # Architecture Analysis
-1. Start from requirements and evidence.
-2. Identify system boundaries and actors.
-3. Define responsibilities and ownership.
-4. Define interfaces/contracts.
-5. State invariants.
-6. Describe data and state transitions.
-7. Describe failure behavior.
-8. Cover security, reliability, observability, and compatibility.
-9. Separate current facts, proposed decisions, and unresolved questions.
-10. Send substantial designs to an independent critic before implementation planning.
+
+Analyze current boundaries, component ownership, contracts, state/data ownership, request/event flows, failures/retries, trust boundaries, reliability, observability, deployment topology, and coupling.
+
+Ground edges in repository evidence, mark inference explicitly, use Mermaid where helpful, and publish source SHA plus unknowns. Do not redesign unless requested.

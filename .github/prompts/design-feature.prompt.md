@@ -1,8 +1,11 @@
 ---
-description: Produce a system design for a non-trivial feature using repository evidence.
-agent: system-designer
+description: Produce Gate A and Gate B design artifacts for a feature without implementing it.
 ---
 
-Read `AGENTS.md`, `docs/workflows/design-build.md`, and the available evidence. Create a system design covering boundaries, responsibilities, contracts, invariants, data/state flow, failure behavior, security, reliability, and observability.
+Read `AGENTS.md`.
 
-Do not implement code. Separate current facts, proposed decisions, and unresolved questions.
+For the requested feature, establish enough Stage 0 evidence to design safely. Create/confirm the Change Brief and mechanical Definition of Done.
+
+Run System Designer → fresh Design Critic (Gate A). If Gate A passes, run Implementation Designer → fresh Implementation Plan Critic (Gate B).
+
+Stop before implementation. Return approved/rejected artifacts, blocking findings, unknowns, traceability, and exact validation plan.

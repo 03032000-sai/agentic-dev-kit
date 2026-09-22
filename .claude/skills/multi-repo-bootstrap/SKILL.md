@@ -1,15 +1,10 @@
 ---
 name: multi-repo-bootstrap
-description: Onboard multiple Git repositories into a shared multi-repo workspace before any cross-repo engineering workflow begins.
+description: Safely establish a multi-repository working set, inventory independent Git state, discover cross-repo contracts, and elect an anchor for shared artifacts.
 ---
 
 # Multi-Repo Bootstrap
 
-1. Resolve target repositories from user-supplied URLs (optionally `<url>#<branch>` or an alias).
-2. Multi-Repo Bootstrapper runs preflight checks (path-traversal-safe destination, no overwrite of a non-empty checkout) and confirms the clone plan with the user.
-3. Clone each repository into `repos/<name>/` and verify `.git`, origin, and current branch.
-4. Write/update the canonical manifest at `docs/multi-repo/inventory.json`.
-5. Cross-Repo Discovery scans all cloned repos and builds the dependency graph, integration checklist, and elects an anchor repo.
-6. Hand off to the requested engineering workflow (e.g. `brownfield-bootstrap`, `incremental-design-build`) scoped to the relevant sub-repo(s).
+Validate each user-supplied repo destination under `repos/`, refuse destructive overwrite, preserve independent Git histories, and inventory origin/branch/HEAD SHA.
 
-Never force-clone, force-checkout, or discard local changes in an existing sub-repo. Do not assume a repo exists — always resolve from the manifest or fresh user input.
+Discover cross-repo APIs/events/schemas/libraries/data ownership/deploy order/integration tests. Elect an anchor repo for shared `docs/cross-repo/` artifacts. Every Git mutation targets exactly one repo. Return inventory, dependency graph, integration checklist, anchor decision, source SHAs, and risks.
