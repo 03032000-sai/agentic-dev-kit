@@ -1,17 +1,12 @@
 ---
 name: bugfix
-description: Diagnose and fix a non-trivial bug while preserving unrelated behavior. Use when current behavior is incorrect or regressed.
+description: Diagnose and fix a non-trivial defect using reproduction evidence, root-cause analysis, regression tests, design gates when needed, and independent closure review.
 ---
 
 # Bug Fix
-1. Reproduce or establish failure evidence.
-2. Record expected vs actual behavior.
-3. Identify smallest responsible boundary.
-4. Decide whether design is impacted.
-5. Run design gates if needed.
-6. Add regression test when feasible.
-7. Implement smallest safe correction.
-8. Run local validation and clean validation when risk warrants.
-9. Critic checks regression scope and hidden behavior changes.
-10. Update docs if contracts/behavior changed.
-Do not weaken tests or suppress errors to make the bug disappear.
+
+Establish expected vs actual behavior and reproducible evidence before editing. Perform focused discovery, identify a confirmed root cause (or explicitly label the hypothesis), decide whether the defect exposes a system-design gap, and route through Gate A/B when warranted.
+
+Add or identify a regression oracle that demonstrates the original defect when feasible. Implement the smallest durable correction, run targeted then broader validation, use clean-context validation when risk warrants, and finish with a fresh Gate C critic.
+
+Never suppress symptoms with broad fallbacks, weaken tests to pass, mix unrelated cleanup, or present correlation as confirmed root cause.

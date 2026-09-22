@@ -1,17 +1,35 @@
 ---
 name: bugfix
-description: Diagnose and fix a non-trivial bug while preserving unrelated behavior. Use when current behavior is incorrect or regressed.
+description: Diagnose and fix a non-trivial defect using reproduction evidence, root-cause analysis, regression tests, design gates when needed, and independent closure review.
 ---
 
 # Bug Fix
-1. Reproduce or establish failure evidence.
-2. Record expected vs actual behavior.
-3. Identify smallest responsible boundary.
-4. Decide whether design is impacted.
-5. Run design gates if needed.
-6. Add regression test when feasible.
-7. Implement smallest safe correction.
-8. Run local validation and clean validation when risk warrants.
-9. Critic checks regression scope and hidden behavior changes.
-10. Update docs if contracts/behavior changed.
-Do not weaken tests or suppress errors to make the bug disappear.
+
+## Goal
+Correct the root cause while preserving unrelated behavior.
+
+## Flow
+1. **Establish failure evidence.** Capture expected vs actual behavior, environment, repro steps, logs/tests, and affected scope.
+2. **Focused discovery.** Trace the failing path, state, dependencies, recent relevant changes, and nearby tests.
+3. **Root-cause hypothesis.** Distinguish confirmed cause from plausible correlation.
+4. **Design-impact decision.**
+   - local implementation defect → implementation plan may be sufficient;
+   - contract/invariant/boundary failure → reopen System Design / Gate A.
+5. **Regression oracle.** Add or identify a test/check that demonstrates the bug when feasible.
+6. **Implementation design / Gate B** for non-trivial fixes.
+7. **Implement smallest durable correction.**
+8. **Targeted local validation**, then broader regression checks.
+9. **Clean-context validation** when release risk warrants.
+10. **Fresh Gate C critic** reviews root-cause closure, regression risk, diff, and evidence.
+11. Update docs if externally visible behavior/contracts changed.
+
+## Anti-patterns
+Do not:
+- suppress the symptom with a broad catch/fallback;
+- weaken/delete a failing test;
+- claim a root cause solely from temporal correlation;
+- fix unrelated cleanup in the same change;
+- skip negative/failure-path testing when the bug occurred there.
+
+## Completion evidence
+The original repro no longer fails, the regression oracle passes, required broader checks pass, and the critic finds no unresolved blocking regression/scope issue.

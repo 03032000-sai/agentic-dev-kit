@@ -1,7 +1,12 @@
 ---
 name: feature-development
-description: Build a new feature using the governed design-build lifecycle. Use when behavior is being added or materially extended.
+description: Deliver a new or materially extended capability through the full governed design-build lifecycle using vertically testable slices.
 ---
 
 # Feature Development
-Create a Change Brief with goal, non-goals, acceptance criteria, compatibility constraints, and risks. Run discovery → System Design/Gate A → Implementation Design/Gate B → implementation → validation → docs → Gate C → Git handoff. Prefer independently testable vertical slices.
+
+Use `incremental-design-build` as the governing lifecycle. Translate the request into explicit outcomes/non-goals, handle compatibility/migration early, design contracts before code, and implement vertically testable slices with deterministic acceptance checks.
+
+Include failure paths, observability, rollout/rollback, and requirement-to-evidence traceability. Prefer a small end-to-end behavior over an untestable skeleton.
+
+Gate C closes only when every acceptance criterion maps to implementation and evidence and material docs are current.

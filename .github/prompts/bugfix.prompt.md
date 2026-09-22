@@ -1,9 +1,11 @@
 ---
-description: Diagnose and fix a bug with regression evidence and controlled scope.
+description: Diagnose and fix a non-trivial bug with root-cause evidence, regression coverage, and governed design/validation.
 ---
 
-Read `AGENTS.md`.
+Read `AGENTS.md` and invoke the `bugfix` skill.
 
-Use the `bugfix` skill. Establish failure evidence first. Do not jump directly to editing. Add a regression test when feasible.
+Do not edit first. Start with a failure packet: expected vs actual behavior, reproduction evidence, environment, affected scope, and known impact. Perform focused discovery, distinguish symptom from confirmed root cause, and decide whether the fix requires Gate A and/or Gate B.
 
-Finish with current stage, artifacts produced, validation evidence, blocking findings, remaining risks, and recommended next action.
+Require a regression oracle when feasible. Implement the smallest durable correction, run targeted and broader deterministic validation, use clean-context validation when warranted, and finish with a fresh Gate C critic.
+
+At pauses report root-cause confidence, current gate/stage, evidence, open risks, and next role.

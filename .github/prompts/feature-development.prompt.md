@@ -1,9 +1,9 @@
 ---
-description: Build a feature through the governed agent workflow.
+description: Build a new capability using the complete governed design-build lifecycle and vertically testable slices.
 ---
 
-Read `AGENTS.md`.
+Read `AGENTS.md`. Invoke `feature-development`, which is governed by `incremental-design-build`.
 
-Use the `feature-development` skill. Establish acceptance criteria and evidence before design. Use independent critique at design and implementation boundaries.
+Establish outcomes/non-goals, compatibility/migration constraints, Stage 0 context, Change Brief/DoD, Gate A system design, Gate B implementation design, and then implement vertically testable slices with deterministic validation/checkpoints.
 
-Finish with current stage, artifacts produced, validation evidence, blocking findings, remaining risks, and recommended next action.
+Include observability, failure paths, rollout/rollback, traceability, clean-context validation when warranted, and fresh Gate C review. End PR-ready, not merged.
