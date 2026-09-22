@@ -1,17 +1,35 @@
 ---
 name: repo-discovery
-description: Discover an unfamiliar repository progressively and produce an evidence map. Use for brownfield analysis, unfamiliar codebases, architecture discovery, or before non-trivial changes. Do not use when the relevant files and behavior are already known.
+description: Perform progressive, evidence-backed repository discovery before design or implementation.
 ---
 
 # Repository Discovery
-1. Read repository-level instructions.
-2. Inspect root structure and high-signal metadata.
-3. Identify languages, package managers, build/test systems, and deployment configuration.
-4. Read architecture/docs only as needed.
-5. Locate likely entry points and dependency boundaries.
-6. Trace only task-relevant paths.
-7. Locate tests that encode current behavior.
-8. Produce an evidence map with paths, symbols, confirmed behavior, tests, constraints, inferences, and unknowns.
-9. Stop when enough evidence exists for the next stage.
 
-Do not modify source code while using this skill.
+## Start
+Read repository instructions, Git state, root tree, manifests, build/test config, CI/CD, and high-level documentation.
+
+## Then focus
+Translate the task into questions and inspect only relevant:
+- entry points;
+- modules/symbols;
+- APIs/events/schemas;
+- state/persistence;
+- integrations;
+- tests;
+- deployment/IaC.
+
+## Evidence classes
+Tag meaningful claims confirmed/documented/inferred/unknown.
+
+## Output
+Produce:
+- repository fingerprint;
+- task-focused file/symbol map;
+- current behavior trace;
+- relevant test map;
+- dependency/integration map;
+- docs/code drift;
+- risks/unknowns;
+- recommended next role.
+
+Do not implement while using this skill.
