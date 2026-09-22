@@ -1,0 +1,42 @@
+checkpoint_version: 1
+
+repository:
+  name: ""
+  root: ""
+  remote: ""
+
+git:
+  branch: ""
+  head_sha: ""
+  base_branch: ""
+
+change_brief:
+  path: ""
+  goal: ""
+  definition_of_done: []
+
+current_stage: ""
+current_gate: ""
+
+approved_artifacts:
+  system_design: ""
+  implementation_design: ""
+
+changed_files: []
+documentation_changed: []
+
+validation: []
+critic_findings:
+  blocking: []
+  important: []
+  advisory: []
+
+risks: []
+blockers: []
+ordered_next_steps: []
+recommended_next_agent: ""
+
+context:
+  key_decisions: []
+  unresolved_questions: []
+  files_that_must_be_reloaded: []

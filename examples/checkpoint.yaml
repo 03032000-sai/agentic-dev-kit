@@ -1,0 +1,36 @@
+checkpoint_version: 1
+repository:
+  name: example-api
+git:
+  branch: feat/tenant-rate-limit
+  head_sha: abcdef123456
+  base_branch: main
+change_brief:
+  path: examples/change-brief.md
+  goal: tenant-aware request rate limiting
+  definition_of_done:
+    - DOD-001
+    - DOD-002
+    - DOD-003
+current_stage: implementation
+current_gate: gate-b-passed
+approved_artifacts:
+  system_design: examples/system-design.md
+  implementation_design: examples/implementation-design.md
+changed_files: []
+validation: []
+critic_findings:
+  blocking: []
+  important: []
+  advisory: []
+risks:
+  - dependency failure policy must remain consistent with approved design
+blockers: []
+ordered_next_steps:
+  - implement first approved vertical slice
+recommended_next_agent: implementation-executor
+context:
+  key_decisions:
+    - limiter runs after tenant identity and before business handler
+  unresolved_questions: []
+  files_that_must_be_reloaded: []
