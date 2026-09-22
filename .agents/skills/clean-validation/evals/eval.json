@@ -1,0 +1,30 @@
+{
+  "skill": "clean-validation",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "repro",
+      "prompt": "Prove this candidate commit builds and tests from a clean environment without touching my working tree.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "targeted-test",
+      "prompt": "Run one unit test in the current working tree.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "pin candidate SHA",
+    "use separate clean environment",
+    "install from authoritative manifests",
+    "capture exact commands and discovery counts",
+    "surface environment assumptions"
+  ],
+  "forbidden_behaviors": [
+    "reset or clean active working tree",
+    "call missing dependencies a pass",
+    "ignore clean-context failures"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "skill": "agent-alignment",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "multi-role",
+      "prompt": "Before we design this cross-cutting feature, align the bootstrapper, designers, implementer, critic, and operator on scope and authority.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "single-answer",
+      "prompt": "Explain what this function does.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "use one Change Brief and evidence set",
+    "surface disagreements",
+    "state authority limits",
+    "identify expected artifacts and mutation owner",
+    "preserve unresolved questions"
+  ],
+  "forbidden_behaviors": [
+    "force fake consensus",
+    "hide conflicting assumptions",
+    "start Gate A with a blocking scope conflict"
+  ]
+}

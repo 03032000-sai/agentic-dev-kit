@@ -1,0 +1,28 @@
+{
+  "skill": "project-traceability",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "long-change",
+      "prompt": "Refresh the requirement/design/code/test/finding traceability for this long-running change.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "status",
+      "prompt": "Show git status.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "use stable REQ DES IMP VAL FND RSK IDs",
+    "build forward and reverse traceability",
+    "detect stale links after SHA change",
+    "report orphan implementation and gaps"
+  ],
+  "forbidden_behaviors": [
+    "close gaps with narrative confidence",
+    "leave stale findings linked to changed code"
+  ]
+}

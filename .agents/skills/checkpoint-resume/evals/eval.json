@@ -1,0 +1,30 @@
+{
+  "skill": "checkpoint-resume",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "resume",
+      "prompt": "Resume yesterday's feature work from the checkpoint and verify nothing drifted before editing.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "new-task",
+      "prompt": "Start a brand new feature with no prior checkpoint.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "load checkpoint and referenced artifacts",
+    "compare branch HEAD and dirty state",
+    "detect stale approvals after drift",
+    "remain read-only until reconciliation",
+    "return next role and mutation owner"
+  ],
+  "forbidden_behaviors": [
+    "trust stale SHA blindly",
+    "continue mutation from a corrupt checkpoint",
+    "silently rewrite checkpoint history"
+  ]
+}

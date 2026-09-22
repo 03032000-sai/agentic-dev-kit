@@ -1,0 +1,30 @@
+{
+  "skill": "observability-evidence",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "prod-signals",
+      "prompt": "Define and verify the logs metrics traces and error/latency signals needed to operate this feature in production.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "logging-format",
+      "prompt": "Rename this debug log message.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "identify success and failure signals",
+    "cover dependencies retries and correlation",
+    "protect sensitive data and metric cardinality",
+    "define deterministic verification where feasible",
+    "separate planned from observed evidence"
+  ],
+  "forbidden_behaviors": [
+    "call generic error logging an observability plan",
+    "put secrets in logs",
+    "claim unimplemented dashboards or alerts as verified"
+  ]
+}

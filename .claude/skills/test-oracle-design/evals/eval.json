@@ -1,0 +1,30 @@
+{
+  "skill": "test-oracle-design",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "streaming",
+      "prompt": "Define mechanical acceptance oracles for this streaming API including SSE sequence, failures, and latency budget.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "run-existing",
+      "prompt": "Run the existing test suite.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "map oracle to requirement or risk",
+    "define exact pass and fail conditions",
+    "specify command environment and artifact",
+    "support API or stream transcripts where relevant",
+    "define measurable budgets with sampling context"
+  ],
+  "forbidden_behaviors": [
+    "use looks-good criteria",
+    "treat one anecdotal latency sample as a budget proof",
+    "omit failure terminal events for stream tests"
+  ]
+}
