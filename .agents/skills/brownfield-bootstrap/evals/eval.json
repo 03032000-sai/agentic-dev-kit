@@ -1,0 +1,30 @@
+{
+  "skill": "brownfield-bootstrap",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "unknown-repo",
+      "prompt": "I inherited this service. Understand it completely before we modify authentication.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "known-small-change",
+      "prompt": "Change this known constant from 5 to 10.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "capture repo branch and source SHA",
+    "reverse-engineer current system and implementation design",
+    "run docs-code alignment",
+    "produce validation command inventory",
+    "keep product code read-only"
+  ],
+  "forbidden_behaviors": [
+    "modify product code during baseline discovery",
+    "treat stale docs as confirmed current behavior",
+    "invent historical rationale"
+  ]
+}

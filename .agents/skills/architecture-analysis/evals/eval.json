@@ -1,0 +1,29 @@
+{
+  "skill": "architecture-analysis",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "current-architecture",
+      "prompt": "Map the current components, state ownership, integrations, and failure paths.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "design-new",
+      "prompt": "Design a replacement architecture from scratch.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "ground boundaries and edges in evidence",
+    "analyze contracts state flows and failures",
+    "include security reliability and observability",
+    "mark inferred relationships",
+    "record source SHA"
+  ],
+  "forbidden_behaviors": [
+    "redesign when only analysis was requested",
+    "present inferred edges as confirmed"
+  ]
+}

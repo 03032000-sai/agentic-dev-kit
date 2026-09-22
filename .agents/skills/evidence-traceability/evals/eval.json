@@ -1,0 +1,29 @@
+{
+  "skill": "evidence-traceability",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "audit",
+      "prompt": "Show which requirements are implemented, where, and which tests prove each one.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "simple-summary",
+      "prompt": "Summarize this README.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "map requirement to design implementation test and observed evidence",
+    "preserve evidence classes",
+    "flag orphan implementation",
+    "flag unimplemented requirements",
+    "flag validation claims without evidence"
+  ],
+  "forbidden_behaviors": [
+    "close trace gaps with model confidence",
+    "promote inferred claims to confirmed"
+  ]
+}

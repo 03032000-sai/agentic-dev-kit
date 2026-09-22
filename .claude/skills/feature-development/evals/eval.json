@@ -1,0 +1,29 @@
+{
+  "skill": "feature-development",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "new-capability",
+      "prompt": "Add account-level usage quotas with rollout controls.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "bug",
+      "prompt": "Fix the existing quota counter double-increment bug.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "use governed design-build lifecycle",
+    "define outcomes and non-goals",
+    "prefer vertically testable slices",
+    "include rollout rollback and observability",
+    "trace acceptance criteria to evidence"
+  ],
+  "forbidden_behaviors": [
+    "jump directly to code for a substantial feature",
+    "ship untestable scaffolding when an end-to-end slice is feasible"
+  ]
+}

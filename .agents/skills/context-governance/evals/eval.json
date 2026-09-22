@@ -1,0 +1,30 @@
+{
+  "skill": "context-governance",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "long-run",
+      "prompt": "This task spans many files and stages; keep it resumable without bloating context.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "small-answer",
+      "prompt": "Explain this 20-line function.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "use progressive disclosure",
+    "checkpoint at major stage boundaries",
+    "keep critics fresh-context",
+    "compact stale material",
+    "stop mutation if durable state is untrusted"
+  ],
+  "forbidden_behaviors": [
+    "load the entire repo by default",
+    "carry author narrative into independent review",
+    "continue mutable work after checkpoint failure"
+  ]
+}

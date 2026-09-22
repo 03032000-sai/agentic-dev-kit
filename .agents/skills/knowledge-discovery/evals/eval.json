@@ -1,0 +1,31 @@
+{
+  "skill": "knowledge-discovery",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "architecture-question",
+      "prompt": "Explain how an incoming request is authenticated and authorized in this repo.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "implementation",
+      "prompt": "Implement OAuth login.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "define exact question and scope",
+    "use progressive evidence discovery",
+    "separate WHAT from WHY",
+    "classify claims by evidence",
+    "use fresh critique",
+    "record source SHA"
+  ],
+  "forbidden_behaviors": [
+    "modify product code",
+    "invent business or historical rationale",
+    "treat incomplete search as proof of absence"
+  ]
+}

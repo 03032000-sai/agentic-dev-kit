@@ -1,0 +1,29 @@
+{
+  "skill": "reverse-engineer-design",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "missing-docs",
+      "prompt": "There are no architecture docs. Reconstruct the current design from the code.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "future-design",
+      "prompt": "Design a new event-driven architecture for this service.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "derive abstract design before concrete map",
+    "map boundaries contracts state and flows",
+    "map design to files symbols schemas tests and deployment evidence",
+    "mark inference and unknowns",
+    "use fresh map/findings critique"
+  ],
+  "forbidden_behaviors": [
+    "invent historical rationale",
+    "present idealized future design as current state"
+  ]
+}

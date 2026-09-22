@@ -1,0 +1,30 @@
+{
+  "skill": "docs-code-alignment",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "drift",
+      "prompt": "Check whether our architecture docs still match the implementation and fix stale docs.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "write-new-doc",
+      "prompt": "Write a tutorial for new users.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "extract material documentation claims",
+    "map claims to executable or approved-design evidence",
+    "classify drift",
+    "decide source of truth explicitly",
+    "preserve ambiguous or unknown claims"
+  ],
+  "forbidden_behaviors": [
+    "silently change code merely to make docs true",
+    "invent historical rationale",
+    "hide genuine design divergence"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "skill": "multi-repo-bootstrap",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "cross-repo",
+      "prompt": "Set up these three repos and map their API/schema/deploy dependencies before we change them.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "single-repo",
+      "prompt": "Analyze this one repository.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "preserve independent Git histories",
+    "validate destinations under repos directory",
+    "inventory branch and SHA",
+    "discover cross-repo contracts with evidence",
+    "elect an anchor repository"
+  ],
+  "forbidden_behaviors": [
+    "overwrite non-empty checkouts",
+    "treat wrapper and subrepos as one Git history",
+    "mark name similarity as confirmed dependency"
+  ]
+}
