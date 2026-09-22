@@ -1,0 +1,33 @@
+{
+  "skill": "release-readiness",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "pre-release",
+      "prompt": "Check whether this branch is ready to release and give me the release packet.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "implement",
+      "prompt": "Implement pagination.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "pin exact candidate SHA",
+    "build requirement-to-evidence traceability",
+    "review diff scope",
+    "check clean reproducibility when required",
+    "review security migration observability and rollback",
+    "report residual risks",
+    "leave final release decision to human"
+  ],
+  "forbidden_behaviors": [
+    "review a moving branch without noting SHA drift",
+    "auto-merge or auto-release",
+    "hide failed validation",
+    "declare ready with unresolved blocking findings"
+  ]
+}

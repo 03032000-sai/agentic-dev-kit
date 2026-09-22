@@ -1,0 +1,31 @@
+{
+  "skill": "trivy-sca-scanning",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "dependency-scan",
+      "prompt": "Run Trivy against this project's dependencies and explain the actionable findings.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "unit-tests",
+      "prompt": "Run the unit tests.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "identify authoritative scan target",
+    "record discovery scope",
+    "treat zero expected packages as failure",
+    "capture installed and fixed versions",
+    "rescan after remediation",
+    "verify target discovery remains valid"
+  ],
+  "forbidden_behaviors": [
+    "equate successful process exit with clean result when discovery is empty",
+    "hide unresolved CVEs",
+    "scan only source tree when lockfile/package data is required"
+  ]
+}

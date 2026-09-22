@@ -1,0 +1,31 @@
+{
+  "skill": "frontmatter-indexer",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "asset-index",
+      "prompt": "Build a deterministic index of all agent, prompt, instruction, and skill frontmatter in this repo.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "markdown-summary",
+      "prompt": "Summarize README.md.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "scan configured asset directories",
+    "validate YAML frontmatter",
+    "detect duplicate canonical names",
+    "include deterministic ordering",
+    "include checksum or content SHA",
+    "produce stable repeated output"
+  ],
+  "forbidden_behaviors": [
+    "use body text to compensate for missing required routing metadata",
+    "include secrets in generated index",
+    "silently ignore malformed frontmatter"
+  ]
+}

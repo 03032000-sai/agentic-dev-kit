@@ -1,0 +1,31 @@
+{
+  "skill": "semgrep-sast-rules",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "custom-rule",
+      "prompt": "Create a Semgrep rule for unsafe subprocess shell=True usage with tests.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "generic-review",
+      "prompt": "Review this code for readability.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "define precise rule metadata",
+    "include true-positive fixture",
+    "include true-negative fixture",
+    "prefer semantic pattern matching",
+    "bound autofix by semantic risk",
+    "verify rule against fixtures"
+  ],
+  "forbidden_behaviors": [
+    "use broad regex when structured patterns suffice",
+    "auto-fix authentication authorization cryptography or secret behavior",
+    "report clean if rules failed to load"
+  ]
+}

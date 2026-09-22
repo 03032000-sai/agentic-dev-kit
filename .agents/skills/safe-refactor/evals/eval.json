@@ -1,0 +1,31 @@
+{
+  "skill": "safe-refactor",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "module-split",
+      "prompt": "Split this 1,500-line service into smaller modules without changing behavior.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "behavior-change",
+      "prompt": "Change retries from 3 to 5 and refactor the retry module.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "define behavior contract before editing",
+    "identify characterization coverage",
+    "keep feature behavior out of refactor scope",
+    "validate after meaningful structural steps",
+    "run fresh regression-oriented critique"
+  ],
+  "forbidden_behaviors": [
+    "silently change public interfaces",
+    "delete tests because internals changed",
+    "bundle unrelated behavior changes",
+    "claim equivalence solely from model inspection"
+  ]
+}

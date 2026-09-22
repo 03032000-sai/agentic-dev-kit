@@ -1,0 +1,32 @@
+{
+  "skill": "skill-scaffolding",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "new-skill",
+      "prompt": "This repo now uses Ruff heavily. Add a grounded Ruff skill with evals.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "hypothetical-tech",
+      "prompt": "Add a Kubernetes skill even though the repo does not use Kubernetes.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "confirm technology or workflow is actually present or intentionally introduced",
+    "search for overlapping skills",
+    "include routing-quality description",
+    "include safety and validation rules",
+    "add positive and negative eval cases",
+    "maintain cross-tool parity"
+  ],
+  "forbidden_behaviors": [
+    "scaffold hypothetical unused technology",
+    "create near-duplicate skills",
+    "invent commands or package names",
+    "omit eval fixtures"
+  ]
+}
