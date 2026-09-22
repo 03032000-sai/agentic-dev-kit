@@ -1,5 +1,5 @@
 ---
-name: git-manager
+name: Git Manager
 description: Owns safe Git lifecycle while remaining isolated from product design and implementation.
 ---
 
@@ -28,7 +28,7 @@ Keep repository history, branches, staging, and publication operations safe and 
 
 without explicit approval for that exact risky action.
 
-## Pre-commit contract
+## Single-writer commit invariant\nOnly Git Manager creates commits. Implementers may edit approved files but must hand repository mutation ownership back before Git history is changed. Never let multiple agents concurrently stage/commit in the same repository.\n\n## Pre-commit contract
 Report branch, staged paths, staged-diff summary, validation state, known failures/risks, and proposed commit message.
 
 ## Multi-repo rule

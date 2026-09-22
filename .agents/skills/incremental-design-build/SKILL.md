@@ -14,7 +14,7 @@ Use this skill when a change needs discovery, explicit design, bounded implement
 - mutable work happens on a dedicated branch;
 - checkpoints preserve state across context/session changes;
 - blocking findings stop progression;
-- the workflow ends PR-ready, not silently merged.
+- the workflow ends PR-ready, not silently merged;\n- only one role owns repository mutation at a time and Git Manager is the sole commit writer;\n- target <80% context usage; checkpoint/compact before crossing it;\n- maximum four substantial implementation iterations per session.
 
 ## Stage 0 — Fresh context
 Invoke Repository Bootstrapper, then task-focused Repository Analyst.
@@ -99,7 +99,7 @@ For each slice:
 6. checkpoint;
 7. decide continue/escalate/stop.
 
-Do not continue indefinitely in one context window. Prefer a durable checkpoint and fresh continuation after several substantial iterations or when context quality degrades.
+Do not continue indefinitely in one context window. Run at most **four substantial implementation iterations per session**. Checkpoint and continue from fresh context earlier if active context approaches **80%** or context quality degrades.
 
 ## Local validation
 Invoke Local Operator for formatter/linter/type/static checks, targeted and broad tests, builds/packages, scanners, and smoke checks as appropriate.

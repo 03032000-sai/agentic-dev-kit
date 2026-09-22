@@ -191,7 +191,7 @@ Gate C is blocked by:
 - stale material documentation;
 - misleading completion claims.
 
-## PR-ready output
+## Single-writer mutation discipline\n\nOnly one role owns mutable repository work at a time. Implementer may edit approved product files during its slice; ownership is handed off explicitly to validation/review roles. **Git Manager is the sole role that creates commits.** No two agents should concurrently mutate the same repository.\n\n## PR-ready output
 
 Git Manager prepares:
 - branch/status summary;

@@ -23,7 +23,7 @@ The system deliberately separates discovery, design, implementation, validation,
 9. **Smallest safe change.** Preserve unrelated behavior unless the requirement explicitly changes it.
 10. **Human control at risk boundaries.** Destructive, credential-sensitive, security-sensitive, production-impacting, history-rewriting, merge, and push operations require explicit approval unless the user has already authorized that exact action.
 11. **Branch isolation.** Substantial mutable work happens on a dedicated feature/fix branch. The framework does not directly merge to the default branch.
-12. **Clean-context verification matters.** Success in a warm working tree is weaker evidence than reproducibility from a clean repository context.
+12. **Clean-context verification matters.** Success in a warm working tree is weaker evidence than reproducibility from a clean repository context.\n13. **Single-writer mutation discipline.** Only one role owns mutable repository work at a time, and Git Manager is the sole role that creates commits. Handoffs must make mutation ownership explicit.\n14. **Context ceiling.** Target less than 80% of the available model context. At or near 80%, checkpoint and compact/start a fresh continuation before more substantial work.\n15. **Bounded implementation sessions.** Run at most four substantial implementation iterations in one session before checkpointing and continuing from fresh context.
 
 ## Canonical roles
 
@@ -135,7 +135,7 @@ The Implementer works in bounded iterations. Each meaningful iteration should:
 4. update the durable checkpoint;
 5. stop if design assumptions are invalidated.
 
-A session should not continue indefinitely merely because the model still has context. Prefer a checkpoint and a fresh continuation when reasoning quality begins to degrade.
+A session should not continue indefinitely merely because the model still has context. Run at most **four substantial implementation iterations per session**. Checkpoint and continue from fresh context sooner if the active context approaches **80%** or reasoning quality begins to degrade.
 
 ### Gate C — Implementation + validation closure
 
@@ -210,7 +210,7 @@ If checkpoint persistence fails or the checkpoint cannot be trusted, **stop muta
 
 ## Context governance
 
-Target a healthy context budget rather than filling the entire window. Prefer compaction/checkpointing before the active context becomes dominated by stale investigation history.
+Target **less than 80%** of the available context window rather than filling it. At or near 80%, checkpoint and compact/start a fresh continuation before additional substantial work. Prefer compaction/checkpointing earlier when the active context becomes dominated by stale investigation history.
 
 Critics should receive:
 - the requirement/Change Brief;
