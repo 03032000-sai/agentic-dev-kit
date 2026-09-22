@@ -1,7 +1,10 @@
 ---
 name: brownfield-bootstrap
-description: Bootstrap understanding of an unfamiliar existing repository before substantial changes.
+description: Establish a trustworthy current-state baseline for an unfamiliar existing repository before any substantial change.
 ---
 
 # Brownfield Bootstrap
-Read instructions; inspect root/metadata; identify build/test/package/CI/deployment/runtime entry points; inspect architecture/docs; reverse-engineer current abstract and implementation design; identify docs/code drift; record validation commands; create compact evidence map; stop before implementation.
+
+Bootstrap repo/branch/SHA and instructions, map task-relevant behavior, reverse-engineer current system and implementation design, run docs/code alignment, and have fresh critics review the baseline before any feature/fix/refactor work.
+
+Executable evidence is primary for current state; stale docs are classified as drift. Produce baseline artifacts, validation-command inventory, unknowns, risks, and source SHA. Do not mutate product code during the pre-loop.

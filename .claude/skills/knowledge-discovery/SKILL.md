@@ -1,7 +1,10 @@
 ---
 name: knowledge-discovery
-description: Answer architecture, behavior, or repository knowledge questions using evidence-backed discovery and independent critique.
+description: Answer repository architecture, behavior, and domain questions through evidence-first discovery, stable claims, and fresh-context critique without modifying product code.
 ---
 
 # Knowledge Discovery
-Define exact question → discover/rank evidence → extract facts with paths/symbols → separate WHAT from WHY → build compact explanation → fresh critic → publish confirmed facts, documented assertions, inferences, and unresolved gaps. Do not mutate code unless the task changes to implementation.
+
+Define the exact question, establish current repo/SHA context, decompose into sub-questions, discover evidence progressively, and build a claim/evidence map. Separate WHAT from WHY and preserve confirmed/documented/inferred/unknown status.
+
+Use a fresh Map/Findings Critic before publishing. Include source SHA and unresolved gaps. Do not modify product code or invent historical intent.

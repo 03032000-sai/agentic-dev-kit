@@ -1,9 +1,9 @@
 ---
-description: Reconstruct abstract and concrete design from code.
+description: Reconstruct current abstract and concrete design from code/config/tests without inventing historical rationale.
 ---
 
-Read `AGENTS.md`.
+Read `AGENTS.md` and invoke `reverse-engineer-design`.
 
-Use the `reverse-engineer-design` skill. Separate confirmed facts, documented claims, inference, and unknowns. Do not invent historical rationale.
+Derive current system boundaries/contracts/invariants/flows first, then map them to files/modules/symbols/APIs/state/integrations/tests/deployment evidence. Mark every material claim confirmed/documented/inferred/unknown and record source SHA.
 
-Finish with current stage, artifacts produced, validation evidence, blocking findings, remaining risks, and recommended next action.
+Use fresh Map/Findings Critics before publishing. Never invent historical intent from code structure.

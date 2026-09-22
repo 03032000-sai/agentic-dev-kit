@@ -1,7 +1,10 @@
 ---
 name: reverse-engineer-design
-description: Reconstruct current system and implementation design from an existing codebase when design docs are absent or stale.
+description: Reconstruct current system design and implementation design from executable evidence while marking inference and refusing invented rationale.
 ---
 
 # Reverse Engineer Design
-Derive abstract design: boundaries, responsibilities, contracts, invariants, flows/state, failure behavior. Then concrete design: modules/files, entry points, classes/functions, APIs/schemas, persistence, integrations, test boundaries, deployment topology when evidenced. Mark claims confirmed/documented/inferred/unknown. Do not invent rationale.
+
+First derive current boundaries, responsibilities, contracts, invariants, flows, failures, security/reliability/observability. Then map them to concrete files/modules/symbols/APIs/state/integrations/tests/deployment evidence.
+
+Tag claims confirmed/documented/inferred/unknown. Do not infer WHY from structure alone. Use fresh map/findings critics and publish source SHA plus unknowns/drift.

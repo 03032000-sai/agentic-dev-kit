@@ -1,13 +1,26 @@
-# Brownfield Discovery Workflow
+# Brownfield Discovery
 
-1. Inspect repository root and high-signal metadata.
-2. Identify languages, package managers, build/test systems, and deployment configuration.
-3. Read repository-level instructions and architecture docs.
-4. Locate entry points and dependency boundaries.
-5. Trace only code paths relevant to the task.
-6. Locate tests that encode current behavior.
-7. Record evidence with file paths and symbols.
-8. Separate confirmed facts from inference and unknowns.
-9. Stop when enough evidence exists for the next engineering stage.
+Brownfield discovery establishes a trustworthy current-state model before design changes begin.
 
-Avoid summarizing the entire repository when the task is narrow.
+```mermaid
+flowchart TD
+    B[Repository Bootstrap] --> R[Focused Repository Analysis]
+    R --> S[Current System Design]
+    S --> I[Current Implementation Design]
+    I --> D[Docs-Code Alignment]
+    D --> C[Fresh Critics]
+    C --> BL[Baseline at Source SHA]
+    BL --> N[Normal Change Workflow]
+```
+
+## Required baseline
+- repository fingerprint and source SHA;
+- build/test/deploy commands;
+- architecture boundaries/contracts;
+- implementation file/symbol map;
+- data/state/integration paths;
+- relevant tests;
+- docs/code drift;
+- confirmed/documented/inferred/unknown register.
+
+Do not infer historical intent from implementation structure alone.

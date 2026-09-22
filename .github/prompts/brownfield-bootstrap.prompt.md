@@ -1,9 +1,9 @@
 ---
-description: Bootstrap understanding of an unfamiliar brownfield repository.
+description: Build a reviewed current-state baseline for an unfamiliar brownfield repository before changing it.
 ---
 
-Read `AGENTS.md`.
+Read `AGENTS.md` and invoke `brownfield-bootstrap`.
 
-Use the `brownfield-bootstrap` skill. Do not implement product changes. Produce current-state evidence, design maps, docs/code drift, validation commands, risks, and unknowns.
+Do not edit product code. Establish repo/branch/SHA and instructions, perform focused discovery, reverse-engineer current system and implementation design, run docs-code alignment, and use fresh critics on the map/findings.
 
-Finish with current stage, artifacts produced, validation evidence, blocking findings, remaining risks, and recommended next action.
+Return baseline artifacts, build/test/deploy commands, drift report, unknowns/risks, source SHA, and recommended next workflow.

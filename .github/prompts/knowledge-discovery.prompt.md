@@ -1,9 +1,9 @@
 ---
-description: Answer a repository/system question with evidence and independent critique.
+description: Answer a repository or system question with progressive evidence discovery, claim mapping, and fresh-context critique.
 ---
 
-Read `AGENTS.md`.
+Read `AGENTS.md` and invoke `knowledge-discovery`.
 
-Use the `knowledge-discovery` skill. Separate WHAT from WHY and publish unresolved gaps instead of guessing.
+Define the exact question, establish current repository/SHA context, decompose it into sub-questions, gather only necessary evidence, and maintain confirmed/documented/inferred/unknown classifications. Separate WHAT from WHY.
 
-Finish with current stage, artifacts produced, validation evidence, blocking findings, remaining risks, and recommended next action.
+Before publishing, use a fresh Map or Findings Critic. Return the answer, evidence map, unresolved gaps/conflicts, and source SHA. Do not modify product code.
