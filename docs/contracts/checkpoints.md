@@ -1,18 +1,5 @@
-# Checkpoint Contract
+# Durable Checkpoint
 
-Recommended durable checkpoint:
+Recommended fields: branch, head_sha, goal, change_brief, current_stage, approved_artifacts, changed_files, validation, open_findings, risks, next_action, recommended_role.
 
-```yaml
-branch:
-head_sha:
-goal:
-current_stage:
-approved_artifacts:
-changed_files:
-validation:
-open_findings:
-risks:
-next_action:
-```
-
-If required checkpoint state cannot be written or verified, switch to read-only planning rather than continuing mutation blindly.
+If checkpoint state cannot be trusted, prefer read-only planning over blind continuation.

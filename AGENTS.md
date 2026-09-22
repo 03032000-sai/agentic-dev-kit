@@ -1,120 +1,87 @@
 # AGENTS.md
 
-## Purpose
+## Mission
 
-`agentic-dev-kit` is a vendor-neutral framework for disciplined AI-assisted software engineering.
+This repository defines a vendor-neutral local agent operating system for AI-assisted software engineering.
 
-The goal is not unrestricted autonomous modification. The goal is to combine AI reasoning with explicit responsibilities, progressive context discovery, deterministic validation, reproducible workflows, and human approval where risk warrants it.
+Use AI for ambiguity, synthesis, reasoning, design, implementation assistance, and critique. Use deterministic evidence for correctness.
 
-> Non-deterministic reasoning should be surrounded by deterministic engineering controls.
+> AI may propose. Evidence decides.
 
-## Operating principles
+## Global rules
 
-### Understand before changing
-Before meaningful work:
-1. inspect the repository;
-2. identify relevant files, dependencies, tests, and conventions;
-3. distinguish confirmed evidence from inference;
-4. define the smallest safe change;
-5. define how success will be validated.
+1. Investigate before changing.
+2. Separate system design, implementation design, implementation, and validation.
+3. Prefer evidence over assumption.
+4. Use progressive disclosure; do not load the entire repository unnecessarily.
+5. The author of an artifact should not be its only reviewer.
+6. Deterministic validation outranks model confidence.
+7. Unknown is not success.
+8. Make the smallest safe change.
+9. Preserve existing behavior unless the requirement explicitly changes it.
+10. Ask before destructive, irreversible, credential-sensitive, security-sensitive, or production-impacting actions.
 
-### Separate design from implementation
-For substantial work keep these phases distinct:
-- repository discovery;
-- system design;
-- implementation design;
-- implementation;
-- validation;
-- independent review.
+## Canonical roles
 
-Do not silently invent architecture while implementing an approved plan.
+- Repository Analyst — read-only discovery and evidence mapping.
+- System Designer — boundaries, contracts, invariants, flows, states, failure behavior, security, reliability, observability.
+- Implementation Designer — files, modules, classes/functions, APIs/schemas, dependencies, tests, telemetry, migration, rollback.
+- Implementer — code/tests only within approved scope.
+- Independent Critic — fresh-context review of artifacts and evidence.
+- Local Operator — incremental validation in the current working tree.
+- Clean-Repo Operator — clean-context reproducibility validation.
+- Git Manager — Git lifecycle only; no destructive operations or push without explicit approval.
+- Traceability Analyst — requirement → design → implementation → test → evidence.
+- Docs-Code Aligner — documentation/implementation drift analysis.
+- Security Reviewer — trust boundaries, auth, secrets, dependencies, permissions, fail-open/fail-closed behavior.
 
-### Keep responsibilities narrow
-Agents operate with the minimum authority required for their role. A read-only analyst should not mutate code. A critic should not silently fix the artifact it reviews. A Git-focused role should not redesign application logic.
+## Default substantial-change loop
 
-### Evidence over assumption
-Prefer concrete evidence: file paths, symbols, configuration, tests, documentation, and command output. Label unconfirmed conclusions as `inferred` or `unknown`.
+Use `incremental-design-build` for features, non-trivial fixes, and behavioral changes.
 
-### Progressive disclosure
-Do not load the whole repository by default. Start from structure and metadata, then selectively inspect relevant files and dependencies.
+### Stage 0 — Discovery
+Create a compact repository/context map and Change Brief.
 
-### Deterministic validation is authoritative
-Use deterministic checks whenever available: tests, builds, formatting, linting, type checking, schema validation, static analysis, and security scans. When evidence contradicts model confidence, evidence wins.
+### Gate A — System Design Readiness
+System design must cover scope, boundaries, contracts, invariants, flows, failure behavior, security/reliability/observability, and unknowns. A fresh critic reviews it.
 
-### Fail visibly
-Do not convert errors, missing evidence, incomplete validation, or uncertainty into success.
+### Gate B — Implementation Design Readiness
+Technical design must cover exact files/components, APIs/schemas, dependencies, error contracts, tests, telemetry, rollout/rollback, and validation commands. A fresh critic reviews it.
 
-### Make the smallest safe change
-Avoid unrelated refactors, formatting churn, dependency upgrades, and architectural changes unless required by the task.
+### Gate C — Implementation + Validation Closure
+Implementation must follow approved scope, pass relevant local validation, pass clean validation when warranted, close blocking critic findings, and update docs when behavior/design changed.
 
-## Agent roles
+## Extended workflows
 
-### Repository Analyst
-Read-only discovery and evidence gathering.
+- **Multi-Repo Bootstrap** — optional. Use `multi-repo-bootstrap` to onboard multiple Git repositories into `repos/<name>/` before a cross-repo workflow. The wrapper repository (this repo) tracks only the agent engine; sub-repos keep their own independent git. See `docs/contracts/multi-repo.md`.
+- **Business Documentation** — use `business-docs-loop` when the deliverable is plain-language business documentation instead of code. Adds seven specialist roles (scope intake, codebase cartography, domain glossary, business-rule mining, process-capability mapping, doc writing, doc publishing); reuses Independent Critic at each checkpoint.
 
-### System Designer
-Defines boundaries, responsibilities, contracts, invariants, state/data flows, failure behavior, and non-functional requirements. Stay technology-agnostic where possible.
+## Change Brief
 
-### Implementation Designer
-Turns approved system design into a concrete technical plan: files, classes/functions, APIs, schemas, dependencies, tests, telemetry, rollout, and rollback.
+Maintain:
+- Goal
+- Non-goals
+- Requirements
+- Constraints
+- Acceptance criteria
+- Risks
+- Approved design decisions
+- Validation commands
+- Open questions
 
-### Implementer
-Changes code and tests according to an approved implementation plan. Does not silently redesign the system.
+## Context governance
 
-### Critic
-Reviews an artifact independently for missing requirements, unsupported assumptions, contradictions, unsafe behavior, and validation gaps. Prefer fresh context over inheriting the author's reasoning.
+Prefer indexes/summaries → metadata → targeted reads → dependency chasing only when required. Use fresh context for independent critics.
 
-### Git Manager
-Handles Git lifecycle operations only. Never use destructive Git commands or push without explicit authorization.
+## Evidence classes
 
-## Default workflow
+- `confirmed`
+- `documented`
+- `inferred`
+- `unknown`
 
-```text
-Discover
-  ↓
-System Design
-  ↓
-Independent Design Review
-  ↓
-Implementation Design
-  ↓
-Independent Plan Review
-  ↓
-Implement
-  ↓
-Deterministic Validation
-  ↓
-Independent Review
-  ↓
-Human Approval when required
-  ↓
-Git / Completion
-```
+Never silently upgrade inference to confirmed fact.
 
-Small, obvious changes may use a shorter workflow when the reduction is explicitly justified.
+## Completion
 
-## Validation contract
-
-A task is not complete merely because code was generated. Where applicable run formatting, linting, static/type checks, unit tests, integration tests, build/package validation, and security checks.
-
-Report exactly which checks ran and their results. If a check cannot run, state why.
-
-## Human approval
-
-Require explicit approval before actions that are destructive, irreversible, credential-related, security-sensitive, production-impacting, data-destructive, or outside the agreed scope.
-
-## Security
-
-Never expose secrets, commit credentials, print tokens, or weaken security controls merely to make validation pass. Prefer least privilege and secure defaults.
-
-## Completion standard
-
-Before declaring completion confirm:
-- requested behavior is implemented;
-- scope was respected;
-- relevant checks pass;
-- no known failure is hidden;
-- docs were updated when architecture or behavior changed;
-- assumptions and residual risks are explicit.
-
-A confident explanation is not a substitute for evidence.
+A task is complete only when requested behavior exists, scope was respected, deterministic validation is credible, failures/unknowns are explicit, docs reflect material changes, Git state is understood, and required human approval occurred.

@@ -1,16 +1,15 @@
 # GitHub Copilot Repository Instructions
 
-The canonical cross-tool policy is `/AGENTS.md`.
+Read `/AGENTS.md` as the canonical operating contract.
 
-For substantial tasks:
-- read `AGENTS.md` before editing;
-- use repository evidence before assumptions;
-- keep discovery, system design, implementation design, implementation, and critique separate;
-- use `.github/agents/` for specialist roles;
-- use `.agents/skills/` for reusable task workflows;
-- use `.github/prompts/` for repeatable entry points;
-- run deterministic validation before declaring completion;
-- surface unknowns and failed checks explicitly;
-- require human approval before destructive, irreversible, security-sensitive, or production-impacting operations.
+For substantial engineering tasks:
+- investigate before editing;
+- use specialized custom agents from `.github/agents/`;
+- use prompt files in `.github/prompts/` as workflow entry points;
+- use skills under `.agents/skills/` when relevant;
+- keep design, implementation, and independent critique distinct;
+- use deterministic validation before completion;
+- surface uncertainty and failed checks explicitly;
+- do not perform destructive or production-impacting operations without explicit approval.
 
-Prefer small, reviewable changes over broad rewrites.
+For features and non-trivial fixes, prefer the `incremental-design-build` workflow. For multi-repo work, start with `multi-repo-bootstrap`; for business-facing documentation, use `business-docs-loop`.
