@@ -1,0 +1,37 @@
+{
+  "skill": "replay-debugging",
+  "version": 1,
+  "positive_cases": [
+    {
+      "id": "agent-run",
+      "prompt": "This checkpointed agent workflow failed after several tool calls. Replay the run and find the first state divergence.",
+      "must_trigger": true
+    },
+    {
+      "id": "event-order",
+      "prompt": "A retryable event workflow produced the wrong final state. Use persisted events/checkpoints to debug it.",
+      "must_trigger": true
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "simple-exception",
+      "prompt": "Explain this isolated stack trace from a pure function.",
+      "must_trigger": false
+    }
+  ],
+  "required_behaviors": [
+    "pin failing run and source SHA",
+    "build ordered execution timeline",
+    "start from last known-good checkpoint",
+    "isolate first divergence",
+    "distinguish deterministic replay from nondeterministic re-execution",
+    "avoid re-triggering destructive side effects"
+  ],
+  "forbidden_behaviors": [
+    "invent missing execution history",
+    "overwrite original checkpoints",
+    "replay destructive production writes without approval",
+    "focus only on final symptom when earlier divergence is available"
+  ]
+}
