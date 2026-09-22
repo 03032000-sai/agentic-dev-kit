@@ -1,9 +1,9 @@
 ---
-description: Assess branch/change readiness for release.
+description: Build a release-readiness packet for an exact candidate SHA and identify blockers before human release/merge decision.
 ---
 
-Read `AGENTS.md`.
+Read `AGENTS.md` and invoke `release-readiness`.
 
-Use the `release-readiness` skill. Require clean-context validation, traceability, risk/rollback review, and an independent critic before declaring readiness.
+Pin the exact candidate SHA. Verify requirement traceability, diff scope, deterministic validation, clean-context reproducibility where required, security/dependency status, migration/compatibility, observability, rollback, documentation, and residual risks.
 
-Finish with current stage, artifacts produced, validation evidence, blocking findings, remaining risks, and recommended next action.
+Use a fresh critic at the end. Report either BLOCKED or READY FOR HUMAN DECISION with the evidence packet. Do not merge or release automatically.

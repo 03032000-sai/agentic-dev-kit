@@ -1,33 +1,34 @@
 ---
 name: security-remediation
-description: Triage, design, implement, and verify security remediation using deterministic evidence, least privilege, and explicit human review boundaries.
+description: Triage and remediate security findings through evidence confirmation, least-privilege design, regression tests, deterministic rescanning, and independent review.
 ---
 
 # Security Remediation
 
-Use for SAST/SCA findings, vulnerable dependencies, unsafe permissions, auth defects, secret exposure, or risky agent/tool behavior.
+## Stage 1 — Finding intake
+Capture source/tool, rule/CVE, affected component/version/path, severity, scanner scope, and raw evidence reference.
 
-## Flow
-1. Establish the finding source and exact affected component.
-2. Reproduce/confirm with deterministic evidence where possible.
-3. Determine reachability/exploitability without overstating certainty.
-4. Build a remediation Change Brief and non-goals.
-5. Design the smallest durable fix.
-6. Require explicit review for changes to authn/authz, cryptography, secrets, trust boundaries, or production permissions.
-7. Implement with regression tests.
-8. Re-run the originating scanner/check plus relevant tests.
-9. Run fresh Security Reviewer/Implementation Critic.
-10. Record residual risk and evidence.
+## Stage 2 — Confirm and enrich
+Determine:
+- whether the finding is reproducible;
+- reachability/exposure where evidence permits;
+- KEV/EPSS/advisory context when available;
+- current compensating controls;
+- fixed version/remediation options.
 
-## Evidence rules
-- Scanner output is authoritative only for what was actually scanned.
-- Zero expected packages/rules/files scanned is a validation failure, not "clean."
-- Severity is not the same as exploitability.
-- Missing enrichment never erases a scanner finding.
-- A dependency manifest edit is not proof until the resolved graph changes.
+Do not downgrade a finding merely because enrichment is missing.
 
-## Autofix boundary
-Mechanical Tier-1 fixes may be automated only when semantics are narrow, deterministic, covered by positive/negative fixtures, and do not alter auth, authorization, crypto, or secret handling.
+## Stage 3 — Remediation design
+Choose the smallest durable fix. Changes to authn/authz, cryptography, secrets, trust boundaries, or production permissions require explicit human review.
+
+## Stage 4 — Implement + regression
+Add a regression oracle where feasible. For dependency fixes, verify the resolved graph; for code findings, rerun the exact rule/fixture.
+
+## Stage 5 — Deterministic verification
+Re-run the originating scanner and relevant tests. Verify discovery scope is still correct. Zero expected packages/files/rules scanned is a failure, not "clean."
+
+## Stage 6 — Fresh security critique
+Review bypasses, fail-open behavior, new attack surface, privilege expansion, and misleading closure claims.
 
 ## Completion
-A finding is closed only when the vulnerable behavior/dependency is no longer present in deterministic evidence and regression coverage exists where feasible.
+Close only when the original vulnerable behavior/dependency is absent from credible evidence, validation passes, and residual risk is explicit.

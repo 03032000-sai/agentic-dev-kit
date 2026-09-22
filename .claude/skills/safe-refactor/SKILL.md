@@ -1,7 +1,12 @@
 ---
 name: safe-refactor
-description: Refactor structure without changing externally observable behavior.
+description: Improve internal structure while preserving externally observable behavior through characterization evidence, bounded steps, and independent regression review.
 ---
 
 # Safe Refactor
-Define behavior contract; locate/add characterization tests; create narrow refactor plan; critic checks semantic risk; implement small steps; validate after each step; compare public APIs/schemas/side effects/performance-sensitive paths; update structural docs. Do not mix feature work into the refactor.
+
+Define the behavior contract first. Identify public APIs/schemas, side effects, ordering/timing constraints, persistence behavior, and performance-sensitive paths. Add characterization tests where feasible.
+
+Refactor in small steps, validating after each meaningful slice. Do not mix feature/bug work, silently change public interfaces, or weaken tests.
+
+Finish with a fresh critic comparing before/after behavior, public contracts, diff scope, error behavior, and regression evidence. Gate C closes only when behavior preservation is credibly demonstrated.
