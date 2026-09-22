@@ -5,8 +5,31 @@ description: Assess whether a candidate branch/change is ready for human release
 
 # Release Readiness
 
-Pin the exact candidate SHA. Verify acceptance traceability, diff scope, local and clean-context validation, security/dependency evidence, migration/compatibility, observability, rollback, documentation, and residual risks.
+## Preconditions
+Identify the exact candidate branch/commit SHA. Do not assess a moving target.
 
-Publish a release packet with candidate SHA, evidence matrix, validation/security state, rollout/rollback, accepted exceptions, and fresh critic findings.
+## Review dimensions
+1. **Acceptance:** every required criterion maps to implementation and evidence.
+2. **Scope:** diff matches approved Change Brief/design.
+3. **Validation:** relevant unit/integration/E2E/build checks pass.
+4. **Clean reproducibility:** clean-context validation succeeds when required.
+5. **Security/dependencies:** required scans/reviews are complete and discovery scope is credible.
+6. **Migration/compatibility:** schema/data/API changes have rollout/backward-compatibility evidence.
+7. **Observability:** success/failure signals and dashboards/logs/alerts exist where needed.
+8. **Rollback:** trigger, mechanism, data implications, and owner are explicit.
+9. **Documentation:** user/operator/design docs are current.
+10. **Residual risk:** accepted exceptions are explicit and human-owned.
 
-Output only READY FOR HUMAN DECISION or BLOCKED. Do not make the human merge/release decision.
+## Output
+Produce a release packet:
+- candidate SHA;
+- requirement/evidence matrix;
+- validation table;
+- security status;
+- migration/rollout notes;
+- rollback plan;
+- residual-risk register;
+- fresh critic findings;
+- final status: READY FOR HUMAN DECISION or BLOCKED.
+
+Do not make the human release/merge decision yourself.

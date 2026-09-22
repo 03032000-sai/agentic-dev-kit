@@ -5,6 +5,30 @@ description: Compare material documentation claims with executable behavior and 
 
 # Docs ↔ Code Alignment
 
-Extract material doc claims, map each to code/config/tests/design evidence, classify aligned / docs stale / implementation diverged / ambiguous / unknown, then correct only evidence-backed claims when authorized.
+## Goal
+Determine whether documentation describes current behavior, target behavior, or stale intent—and align it without inventing history.
 
-Current-state executable evidence normally outweighs stale prose; approved target design may outweigh current implementation for future state. Never invent historical rationale. Finish with fresh findings critique and source SHA.
+## Flow
+1. Select authoritative docs in scope.
+2. Extract material claims.
+3. Identify corresponding code/config/tests/design evidence.
+4. Classify each claim:
+   - aligned;
+   - docs stale;
+   - implementation diverged from approved target design;
+   - ambiguous;
+   - unknown.
+5. Decide correction direction from source-of-truth policy.
+6. Update only evidence-backed claims when authorized.
+7. Run a fresh Findings Critic over corrected docs.
+
+## Source-of-truth policy
+- current-state behavior: executable code/config/tests normally dominate stale prose;
+- future/target behavior: explicitly approved design may dominate current implementation;
+- historical rationale: requires an authoritative source and is never reconstructed from code style alone.
+
+## Output
+Claim/drift table, corrected documents or proposed changes, unresolved ambiguities, source SHA, and validation links.
+
+## Prohibitions
+Do not make code and docs "match" by silently changing whichever is easier. Surface real design divergence.

@@ -5,8 +5,25 @@ description: Deliver a new or materially extended capability through the full go
 
 # Feature Development
 
-Use `incremental-design-build` as the governing lifecycle. Translate the request into explicit outcomes/non-goals, handle compatibility/migration early, design contracts before code, and implement vertically testable slices with deterministic acceptance checks.
+Use `incremental-design-build` as the governing lifecycle.
 
-Include failure paths, observability, rollout/rollback, and requirement-to-evidence traceability. Prefer a small end-to-end behavior over an untestable skeleton.
+## Feature-specific rules
+- translate the request into explicit user/system outcomes and non-goals;
+- identify compatibility constraints and migration needs early;
+- design contracts before concrete implementation;
+- prefer vertically testable slices that produce observable behavior;
+- define feature flags/rollout controls when partial exposure is required;
+- include failure paths, observability, and rollback in the design;
+- maintain requirement → design → implementation → validation traceability.
 
-Gate C closes only when every acceptance criterion maps to implementation and evidence and material docs are current.
+## Slice strategy
+Each slice should have:
+- bounded behavior;
+- deterministic acceptance check;
+- minimal dependencies;
+- reversible/low-risk rollout where feasible.
+
+Do not create a "skeleton" that cannot be validated if a smaller end-to-end slice is possible.
+
+## Completion
+Gate C must show every acceptance criterion has implementation and evidence, docs are aligned, and rollout/rollback expectations are explicit.

@@ -5,6 +5,35 @@ description: Reconstruct current system design and implementation design from ex
 
 # Reverse Engineer Design
 
-First derive current boundaries, responsibilities, contracts, invariants, flows, failures, security/reliability/observability. Then map them to concrete files/modules/symbols/APIs/state/integrations/tests/deployment evidence.
+## Phase 1 — Abstract current system
+Derive:
+- system boundaries and actors;
+- component responsibilities;
+- contracts/interfaces;
+- invariants;
+- state/data/control flows;
+- failure/recovery behavior;
+- security/reliability/observability signals.
 
-Tag claims confirmed/documented/inferred/unknown. Do not infer WHY from structure alone. Use fresh map/findings critics and publish source SHA plus unknowns/drift.
+## Phase 2 — Concrete implementation
+Map the abstract design to:
+- repositories/files/modules;
+- entry points;
+- classes/functions;
+- APIs/events/schemas;
+- persistence/state;
+- external integrations;
+- tests;
+- CI/CD/deployment topology where evidenced.
+
+## Evidence classes
+Every material statement is confirmed, documented, inferred, or unknown.
+
+## Rationale rule
+Implementation structure may show WHAT exists; it rarely proves WHY it was chosen. Do not manufacture historical intent.
+
+## Review
+Use a fresh Map Critic for structural completeness and a Findings Critic for unsupported claims.
+
+## Output
+Current-state system-design artifact, implementation-design artifact, source SHA, evidence links, unknowns, and drift notes.
